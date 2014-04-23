@@ -38,14 +38,14 @@ PRIVATE NETWORK. Use this to easily jump around in the file.
 1. Add this base box to Vagrant with ```vagrant box add <url>```.
 1. Clone ```this repo``` to get the base Vagrantfile.
 1. Decide on a hostname and IP address for your VM.
-** Configure your PRIVATE NETWORK settings to set an accessible IP for your VM.
-** Add a line to ```/etc/hosts``` with your desired hostname and IP address.
+   * Configure your PRIVATE NETWORK settings to set an accessible IP for your VM.
+   * Add a line to ```/etc/hosts``` with your desired hostname and IP address.
 1. Set up FILE SYNCING by uncommenting the appropriate line in the Vagrantfile.
-** No file syncing is set up by default.
-** The only assumption is that whatever is mounted into ```/var/www``` has a
+   * No file syncing is set up by default.
+   * The only assumption is that whatever is mounted into ```/var/www``` has a
    docroot directory.
-** Most users will want to use NFS or rsync.
-** For larger codebases, a significant performance improvement can be seen by
+   * Most users will want to use NFS or rsync.
+   * For larger codebases, a significant performance improvement can be seen by
    switching to rsync over NFS as supported with Vagrant 1.5.
 1. Boot the VM with ```vagrant up```.
 1. Browse to the hostname you choose to see phpinfo or the code you have synced.
@@ -89,11 +89,11 @@ Package highlights
 ------------------
 
 * LAMP stack composed of
-** Apache 2.4
-** MariaDB 5.5
-** PHP 5.5 (using mod_php)
-** memcached 1.4
-** redis 2.8
+  * Apache 2.4
+  * MariaDB 5.5
+  * PHP 5.5 (using mod_php)
+  * memcached 1.4
+  * redis 2.8
 * vim-full instead of vim-tiny
 * Drush, installed from git into /opt
 * xhgui and xdebug
