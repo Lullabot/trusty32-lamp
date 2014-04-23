@@ -74,7 +74,7 @@ The default group for the vagrant user has been changed to www-data. As well,
 Grub has been configured with a three second delay so it's actually possible to
 get to the menu when booting a VM.
 
-### Unable to mount shared folders fixed
+### "Unable to mount shared folders" fixed
 
 The VirtualBox additions install to /top, but /sbin/mount.vboxfs expects them
 in /usr/lib. <a href="https://forums.virtualbox.org/viewtopic.php?f=3&p=283645">
