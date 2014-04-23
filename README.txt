@@ -31,20 +31,20 @@ Setup instructions
 Each modification in the Vagrantfile is marked with an all-caps header such as
 PRIVATE NETWORK. Use this to easily jump around in the file.
 
-# Add this base box to Vagrant with ```vagrant box add <url>```.
-# Clone ```this repo``` to get the base Vagrantfile.
-# Decide on a hostname and IP address for your VM.
+1. Add this base box to Vagrant with ```vagrant box add <url>```.
+1. Clone ```this repo``` to get the base Vagrantfile.
+1. Decide on a hostname and IP address for your VM.
 ** Configure your PRIVATE NETWORK settings to set an accessible IP for your VM.
 ** Add a line to ```/etc/hosts``` with your desired hostname and IP address.
-# Set up FILE SYNCING by uncommenting the appropriate line in the Vagrantfile.
+1. Set up FILE SYNCING by uncommenting the appropriate line in the Vagrantfile.
 ** No file syncing is set up by default.
 ** The only assumption is that whatever is mounted into ```/var/www``` has a
    docroot directory.
 ** Most users will want to use NFS or rsync.
 ** For larger codebases, a significant performance improvement can be seen by
    switching to rsync over NFS as supported with Vagrant 1.5.
-# Boot the VM with ```vagrant up```.
-# Browse to the hostname you choose to see phpinfo or the code you have synced.
+1. Boot the VM with ```vagrant up```.
+1. Browse to the hostname you choose to see phpinfo or the code you have synced.
 
 ### Optional setup
 
