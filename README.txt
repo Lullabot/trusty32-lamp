@@ -34,24 +34,22 @@ PRIVATE NETWORK. Use this to easily jump around in the file.
 # Add this base box to Vagrant with ```vagrant box add <url>```.
 # Clone ```this repo``` to get the base Vagrantfile.
 # Decide on a hostname and IP address for your VM.
-** Create a private network by uncommenting and editing the line in the
-   Vagrantfile under PRIVATE NETWORK.
+** Configure your PRIVATE NETWORK settings to set an accessible IP for your VM.
 ** Add a line to ```/etc/hosts``` with your desired hostname and IP address.
-# Set up code syncing by uncommenting the appropriate line in the Vagrantfile.
-** Configure FILE SYNCING in the Vagrantfile. No file syncing is set up by
-   default. The only assumption is that whatever is mounted into ```/var/www```
-   has a docroot directory. Most users will want to use NFS or rsync.
-** ```/var/www/docroot``` is served as the default site by Apache.
+# Set up FILE SYNCING by uncommenting the appropriate line in the Vagrantfile.
+** No file syncing is set up by default.
+** The only assumption is that whatever is mounted into ```/var/www``` has a
+   docroot directory.
+** Most users will want to use NFS or rsync.
 ** For larger codebases, a significant performance improvement can be seen by
-   switching to rsync as supported with Vagrant 1.5.
+   switching to rsync over NFS as supported with Vagrant 1.5.
 # Boot the VM with ```vagrant up```.
 # Browse to the hostname you choose to see phpinfo or the code you have synced.
 
 ### Optional setup
 
-The VM is configured with a single CPU core and 512MB of memory, so it will at
-least boot on low end hardware. Most developers will want to allocate more
-resources. See RESOURCE SETTINGS in the Vagrantfile.
+Configure RESOURCE SETTINGS to change the defaults of a single CPU core and
+512MB of memory.
 
 Basebox Details
 ---------------
