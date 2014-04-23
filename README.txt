@@ -10,8 +10,8 @@ right". There's two key problems I've run into with other projects:
 * Reverse-engineering the configuration to make minor changes took more time to
   make than it would have been to build a box from scratch.
 * Many boxes look useful, but aren't signed by a trusted source. How would I
-  know that the box wasn't sending off my API keys or code to some other
-  source?
+  know that the box wasn't sending off my API keys or code to some random
+  server?
 
 With the release of Ubuntu 14.04, I needed to get up to speed on Apache and PHP
 configuration anyways. As well, I wanted something that would easily let me do
@@ -23,8 +23,10 @@ Goals
 
 * < 5 minute setup time for new users.
 * Everything you need for most PHP applications.
-* Drush included for Drupal dev (and out of the way for everything else).
-* xhgui built in and configured for easy opt-in profiling.
+* [xhgui](https://github.com/perftools/xhgui) built in and configured for easy
+  opt-in profiling.
+* [Drush](https://github.com/drush-ops/drush) included for Drupal dev (and out
+  of the way for everything else).
 * No provisioning whatsoever; treat boxes as "fork and forget" for new projects.
 
 Setup instructions
