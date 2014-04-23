@@ -98,6 +98,8 @@ Package highlights
 * Drush, installed from git into /opt
 * xhgui and xdebug
 
+See [PACKAGES.txt](PACKAGES.txt) for the full list.
+
 PHP Profiling with XHGui
 ------------------------
 
