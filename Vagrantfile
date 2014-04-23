@@ -42,8 +42,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # config.vm.synced_folder "../data", "/vagrant_data"
 
   # FILE SYNCING
-  # Comment this if enabling one of the alternatives below.
-  config.vm.synced_folder "www", "/var/www"
+  # Uncomment this to use basic vboxsf file syncing.
+  # config.vm.synced_folder "www", "/var/www"
 
   # NFS sharing alternative.
   # config.vm.synced_folder "www", "/var/www", type: "nfs"

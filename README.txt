@@ -38,11 +38,10 @@ PRIVATE NETWORK. Use this to easily jump around in the file.
    Vagrantfile under PRIVATE NETWORK.
 ** Add a line to ```/etc/hosts``` with your desired hostname and IP address.
 # Set up code syncing by uncommenting the appropriate line in the Vagrantfile.
-** By default a 'www' folder is mounted to ```/var/www```. It's mounted with
-   the built-in Virtualbox shared folders, which work everywhere but are very
-   slow. Most users will want to switch it to NFS or rsync. See FILE SYNCING in
-   the Vagrantfile.
-** ```/var/www/docroot``` is served as the default site.
+** Configure FILE SYNCING in the Vagrantfile. No file syncing is set up by
+   default. The only assumption is that whatever is mounted into ```/var/www```
+   has a docroot directory. Most users will want to use NFS or rsync.
+** ```/var/www/docroot``` is served as the default site by Apache.
 ** For larger codebases, a significant performance improvement can be seen by
    switching to rsync as supported with Vagrant 1.5.
 # Boot the VM with ```vagrant up```.
