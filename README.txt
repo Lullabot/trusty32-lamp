@@ -28,18 +28,31 @@ Goals
 Setup instructions
 ------------------
 
+Each modification in the Vagrantfile is marked with an all-caps header such as
+PRIVATE NETWORK. Use this to easily jump around in the file.
+
 # Add this base box to Vagrant with ```vagrant box add <url>```.
 # Clone ```this repo``` to get the base Vagrantfile.
 # Decide on a hostname and IP address for your VM.
-** Set the IP address at the top of the Vagrantfile where commented.
+** Create a private network by uncommenting and editing the line in the
+   Vagrantfile under PRIVATE NETWORK.
 ** Add a line to ```/etc/hosts``` with your desired hostname and IP address.
 # Set up code syncing by uncommenting the appropriate line in the Vagrantfile.
-** By default a 'www' folder is NFS mounted to ```/var/www```.
+** By default a 'www' folder is mounted to ```/var/www```. It's mounted with
+   the built-in Virtualbox shared folders, which work everywhere but are very
+   slow. Most users will want to switch it to NFS or rsync. See FILE SYNCING in
+   the Vagrantfile.
 ** ```/var/www/docroot``` is served as the default site.
 ** For larger codebases, a significant performance improvement can be seen by
    switching to rsync as supported with Vagrant 1.5.
 # Boot the VM with ```vagrant up```.
+# Browse to the hostname you choose to see phpinfo or the code you have synced.
 
+### Optional setup
+
+The VM is configured with a single CPU core and 512MB of memory, so it will at
+least boot on low end hardware. Most developers will want to allocate more
+resources. See RESOURCE SETTINGS in the Vagrantfile.
 
 Basebox Details
 ---------------
