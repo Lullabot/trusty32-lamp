@@ -68,6 +68,9 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       ## ioapic is required for > 1 CPU core.
       # vb.customize ["modifyvm", :id, "--ioapic", "on"]
       # vb.customize ["modifyvm", :id, "--cpus", "4"]
+
+      # This fixes DNS lag issues with Virtualbox.
+      vb.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
   end
   #
   # View the documentation for the provider you're using for more
