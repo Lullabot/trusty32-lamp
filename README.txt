@@ -1,6 +1,8 @@
 trusty-lamp-vm
 ==============
 
+[Setup instructions for the impatient](#setup-instructions).
+
 There are a ton of Vagrant base boxes available for web developers. Or,
 Chef / Puppet configurations to take a basic OS install and configure it "just
 right". There's two key problems I've run into with other projects:
