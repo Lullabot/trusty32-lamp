@@ -88,8 +88,9 @@ Package highlights
 ** Apache 2.4
 ** MariaDB 5.5
 ** PHP 5.5 (using mod_php)
+** memcached 1.4
+** redis 2.8
 * vim-full instead of vim-tiny
-* unison for file syncing
 * Drush, installed from git into /opt
 * xhgui and xdebug
 
