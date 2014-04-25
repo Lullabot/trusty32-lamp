@@ -1,4 +1,4 @@
-trusty-lamp-vm
+trusty32-lamp-vm
 ==============
 
 [Setup instructions for the impatient](#setup-instructions).
