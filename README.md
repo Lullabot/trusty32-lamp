@@ -35,7 +35,8 @@ Setup instructions
 Each modification in the Vagrantfile is marked with an all-caps header such as
 PRIVATE NETWORK. Use this to easily jump around in the file.
 
-1. Add this base box to Vagrant with ```vagrant box add [url]```.
+1. Add this base box to Vagrant with ```vagrant box add --name trusty32-lamp [url]```.
+   * Optionally [verify your download](#verifying-basebox-integrity).
 1. Clone ```this repo``` to get the base Vagrantfile.
 1. Decide on a hostname and IP address for your VM.
    * Configure your PRIVATE NETWORK settings to set an accessible IP for your VM.
@@ -110,3 +111,28 @@ setup instructions.
 *To start profiling* simply append ?xhprof=on to a request. This will set a
 cookie that will keep profiling enabled for the next hour, regardless of the
 query parameters. Browse to /xhgui to view your profiles.
+
+Verifying basebox integrity
+---------------------------
+
+GPG and SHA1 signatures are available in the
+(Dropbox folder)[https://www.dropbox.com/sh/oy1av6uhod3yeto/Pxuqc9NSFS].
+
+### Verifying the download when adding the box
+
+```vagrant box add --name=trusty32-lamp --checksum [sha1-from-trusty32-lamp.box.sha1] --checksum-type=sha1 [url-to-box]```
+
+### Verifying the box manually
+
+1. Download the box directly.
+1. Download the corresponding .sha1 file.
+1. ```shasum -c trusty32-lamp.box.sha1```.
+
+### Validating my identity
+
+1. Download the box directly.
+1. Download the corresponding .asc file.
+1. ```gpg --recv-keys CDCAA3E1 # Or download CDCAA3E1.key from dropbox and import it.```
+1. ```gpg --verify trusty32-lamp.box.asc```
+   * GPG will throw a warning about the signature not being trusted unless you
+     or someone else in your web of trust has signed my key.
