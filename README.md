@@ -116,7 +116,7 @@ Verifying basebox integrity
 ---------------------------
 
 GPG and SHA1 signatures are available in the
-(Dropbox folder)[https://www.dropbox.com/sh/oy1av6uhod3yeto/Pxuqc9NSFS].
+[Dropbox folder](https://www.dropbox.com/sh/oy1av6uhod3yeto/Pxuqc9NSFS).
 
 ### Verifying the download when adding the box
 
