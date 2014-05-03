@@ -25,7 +25,7 @@ Goals
 * Everything you need for most PHP applications.
 * [xhgui](https://github.com/perftools/xhgui) built in and configured for easy
   opt-in profiling.
-* [Linux MySQL Manager](Lullabot/lmm) for snapshotting databases.
+* [Linux MySQL Manager](https://github.com/Lullabot/lmm) for snapshotting databases.
 * [Drush](https://github.com/drush-ops/drush) included for Drupal dev (and out
   of the way for everything else).
 * No provisioning whatsoever; treat boxes as "fork and forget" for new projects.
