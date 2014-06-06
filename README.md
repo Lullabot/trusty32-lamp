@@ -117,6 +117,18 @@ setup instructions.
 set a cookie that will keep profiling enabled for the next hour, regardless of
 the query parameters. Browse to /xhgui to view your profiles.
 
+Email Configuration
+-------------------
+
+Setting up an email system that works in all cases is difficult to do. Some may
+need no email at all, while others want email to be forwarded to some other
+system. If email is required, try either:
+
+* ```apt-get install postfix mailutils```, followed by selecting local only
+  delivery. Mail can then be viewed by running the 'mail' command.
+* Redirecting all mail to another address by following "Method 1" over at
+  [Oh no! My laptop just sent notifications to 10,000 users](https://www.lullabot.com/blog/article/oh-no-my-laptop-just-sent-notifications-10000-users).
+
 Verifying basebox integrity
 ---------------------------
 
