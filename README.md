@@ -53,6 +53,8 @@ PRIVATE NETWORK. Use this to easily jump around in the file.
    switching to rsync over NFS as supported with Vagrant 1.5.
 1. Boot the VM with ```vagrant up```.
 1. Browse to the hostname you choose to see phpinfo or the code you have synced.
+1. Run ```sudo /vagrant/change-hostname <hostname>``` to tell the VM about
+   it's new hostname.
 
 ### Optional setup
 
