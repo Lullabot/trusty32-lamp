@@ -9,6 +9,12 @@ then
   exit 1
 fi
 
+if [ $EUID -gt 0 ]
+then
+  echo "change-hostname must be run as root."
+  exit 1
+fi
+
 echo $NEW_HOSTNAME > /proc/sys/kernel/hostname
 sed -i 's/127.0.1.1.*/127.0.1.1\t'"$NEW_HOSTNAME"'/g' /etc/hosts
 echo $NEW_HOSTNAME > /etc/hostname
