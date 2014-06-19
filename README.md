@@ -38,7 +38,7 @@ PRIVATE NETWORK. Use this to easily jump around in the file.
 
 1. Add this base box to Vagrant with:
    * ```vagrant box add --name trusty32-lamp
-   https://www.dropbox.com/sh/oy1av6uhod3yeto/PaA1XEbWux/trusty32-lamp.box```.
+  https://www.dropbox.com/sh/oy1av6uhod3yeto/AADzTDkFKJ2qXflAvJh57FKla/trusty32-lamp.box?dl=1```.
    * Or optionally [verify your download](#verifying-basebox-integrity).
 1. Clone ```this repo``` to get the base Vagrantfile.
 1. Decide on a hostname and IP address for your VM.
