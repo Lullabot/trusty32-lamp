@@ -43,6 +43,7 @@ PRIVATE NETWORK. Use this to easily jump around in the file.
 1. Clone ```this repo``` to get the base Vagrantfile.
 1. Decide on a hostname and IP address for your VM.
    * Configure your PRIVATE NETWORK settings to set an accessible IP for your VM.
+     * **Do not skip this step** or ```vagrant up``` might hang.
    * Your hostname **must end in .local** for automatic DNS to work.
    * If your system does not support ZeroConf / Bonjour (most do)
      * Windows users can install
