@@ -1,0 +1,46 @@
+#!/bin/bash -e
+
+if [ -z "$1" ]
+then
+  echo "Usage: compact box-disk1.vmdk"
+  exit 1
+fi
+
+DISK="$1"
+TMPDIR="."
+
+if [[ ! -a $DISK ]]
+then
+  echo "$DISK does not exist."
+  exit 1
+fi
+
+hash qemu-img 2>/dev/null || {
+  echo "qemu-img is required. Install qemu with your package manager."
+  exit 1
+}
+
+hash VBoxManage 2>/dev/null || {
+  echo "VBoxManage is required. Reinstall VirtualBox with the command line tools selected."
+  exit 1
+}
+
+STATE=`VBoxManage showhdinfo $DISK | grep \^State: | cut -c 17- `
+echo "$STATE"
+if [ "$STATE" == "locked write" ]
+then
+  echo "The machine using this disk must be shut down or suspended before compacting."
+  exit 1
+fi
+
+echo "Cloning $DISK..."
+
+TEMP=`mktemp -t compact-disk`
+UUID=`VBoxManage showhdinfo $DISK | grep \^UUID: | awk '{print $2}'`
+
+qemu-img convert -p -O vmdk $DISK $TEMP
+BACKUP=`mktemp -t backup-$DISK`
+mv $DISK $BACKUP
+mv $TEMP $DISK
+VBoxManage internalcommands sethduuid $DISK $UUID
+echo "$BACKUP can now be removed."
