@@ -12,6 +12,7 @@ function cleanup() {
 trap cleanup SIGINT
 
 echo "Zeroing free space on the current disk."
+echo "This is intended to be run within a virtual machine."
 
 ZERO=$(mktemp --tmpdir=.)
 INITIAL=$(pct_used)
