@@ -44,14 +44,15 @@ PRIVATE NETWORK. Use this to easily jump around in the file.
 1. Decide on a hostname and IP address for your VM.
    * Configure your PRIVATE NETWORK settings to set an accessible IP for your VM.
      * **Do not skip this step** or ```vagrant up``` might hang.
-   * Your hostname **must end in .local** for automatic DNS to work.
-   * If your system does not support ZeroConf / Bonjour (most do)
-     * Windows users can install
-      [Bonjour for Windows](http://support.apple.com/kb/dl999)
-     * Linux users can install ```avahi``` if it's not installed.
-     * Or, manually add a line to ```/etc/hosts``` or
-      ```C:\Windows\System32\drivers\etc\hosts``` with your desired hostname
-      and IP address.
+   * Set a HOSTNAME for your VM.
+     * Your hostname **must end in .local** for automatic DNS to work.
+     * If your system does not support ZeroConf / Bonjour (most do)
+       * Windows users can install
+        [Bonjour for Windows](http://support.apple.com/kb/dl999)
+       * Linux users can install ```avahi``` if it's not installed.
+       * Or, manually add a line to ```/etc/hosts``` or
+        ```C:\Windows\System32\drivers\etc\hosts``` with your desired hostname
+        and IP address.
 1. Set up FILE SYNCING by uncommenting the appropriate line in the Vagrantfile.
    * No file syncing is set up by default.
    * The only assumption is that whatever is mounted into ```/var/www``` has a

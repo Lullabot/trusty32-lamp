@@ -26,6 +26,16 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # using a specific IP.
   # config.vm.network "private_network", ip: "192.168.33.10"
 
+  # HOSTNAME
+  # Set the hostname.
+  # config.vm.hostname = "trusty32-lamp"
+
+  # Vagrant sets the hostname after the VM has run services. Restart Avahi to
+  # ensure that it is broadcasting an updated hostname.
+  config.vm.provision "shell",
+    inline: "service avahi-daemon restart",
+    run: "always"
+
   # Create a public network, which generally matched to bridged network.
   # Bridged networks make the machine appear as another physical device on
   # your network.
