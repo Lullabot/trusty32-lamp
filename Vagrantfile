@@ -8,7 +8,15 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # PRIVATE NETWORK
   # Create a private network, which allows host-only access to the machine
   # using a specific IP.
+  config.vm.network "private_network", type: "dhcp"
+
+  # Use this instead to hard code a specific IP address.
   # config.vm.network "private_network", ip: "192.168.33.10"
+
+  # Use this to allow access to the VM from outside of your host machine. This
+  # is useful for testing with phones or tablets. However, it often does not
+  # work on public Wifi networks, so it's disabled by default.
+  # config.vm.network "public_network"
 
   # HOSTNAME
   # Set the hostname.
@@ -75,6 +83,12 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     inline: "service avahi-daemon restart",
     run: "always"
 
+  # Fix eth1 routing that vagrant adds. It just slows down boot time (A LOT!)
+  config.vm.provision "shell",
+    inline: "sed -i '/post-up route del default dev/d' /etc/network/interfaces",
+    run: "always"
+
+  #
   # View the documentation for the provider you're using for more
   # information on available options.
 

@@ -41,9 +41,7 @@ PRIVATE NETWORK. Use this to easily jump around in the file.
   https://www.dropbox.com/sh/oy1av6uhod3yeto/AADzTDkFKJ2qXflAvJh57FKla/trusty32-lamp.box?dl=1```.
    * Or optionally [verify your download](#verifying-basebox-integrity).
 1. Clone ```this repo``` to get the base Vagrantfile.
-1. Decide on a hostname and IP address for your VM.
-   * Configure your PRIVATE NETWORK settings to set an accessible IP for your VM.
-     * **Do not skip this step** or ```vagrant up``` might hang.
+1. Decide on a hostname for your VM.
    * Set a HOSTNAME for your VM.
      * Your hostname **must end in .local** for automatic DNS to work.
      * If your system does not support ZeroConf / Bonjour (most do)
