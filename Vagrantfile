@@ -2,6 +2,10 @@
 # vi: set ft=ruby :
 
 # NETWORKING
+# Set the hostname of the VM. This will almost always need to be changed to
+# match your project.
+HOSTNAME = "trusty32-lamp"
+
 # Set a static IP for this box in addition to the DHCP IP.
 # STATIC_IP = "192.168.100.100"
 
@@ -26,7 +30,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   # HOSTNAME
   # Set the hostname.
-  # config.vm.hostname = "trusty32-lamp"
+  config.vm.hostname = HOSTNAME
 
   # FILE SYNCING
   # Uncomment this to use basic vboxsf file syncing.
