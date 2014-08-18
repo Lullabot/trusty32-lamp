@@ -3,6 +3,27 @@ trusty32-lamp-vm
 
 [Setup instructions for the impatient](#setup-instructions).
 
+**Table of Contents**  *generated with [DocToc](http://doctoc.herokuapp.com/)*
+
+- [trusty32-lamp-vm](#user-content-trusty32-lamp-vm)
+  - [Goals](#user-content-goals)
+  - [Setup instructions](#user-content-setup-instructions)
+    - [Optional setup](#user-content-optional-setup)
+  - [Basebox Details](#user-content-basebox-details)
+    - [/etc management](#user-content-etc-management)
+    - [Permissions](#user-content-permissions)
+    - [Grub](#user-content-grub)
+    - ["Unable to mount shared folders" fixed](#user-content-unable-to-mount-shared-folders-fixed)
+    - [Apache configuration](#user-content-apache-configuration)
+  - [Package highlights](#user-content-package-highlights)
+  - [PHP Debugging with xhprof](#user-content-php-debugging-with-xhprof)
+  - [PHP Profiling with XHGui](#user-content-php-profiling-with-xhgui)
+  - [Email Configuration](#user-content-email-configuration)
+  - [Verifying basebox integrity](#user-content-verifying-basebox-integrity)
+    - [Verifying the download when adding the box](#user-content-verifying-the-download-when-adding-the-box)
+    - [Verifying the box manually](#user-content-verifying-the-box-manually)
+    - [Validating my identity](#user-content-validating-my-identity)
+
 There are a ton of Vagrant base boxes available for web developers. Or,
 Chef / Puppet configurations to take a basic OS install and configure it "just
 right". There's two key problems I've run into with other projects:
