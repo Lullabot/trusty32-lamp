@@ -10,6 +10,7 @@ HOSTNAME = "trusty32-lamp"
 # STATIC_IP = "192.168.100.100"
 
 # FILE SYNCING
+
 # Choose between "vbox", "nfs", "rsync", or "none" sync types.
 #   - vbox is the simplest, but also the slowest.
 #   - NFS doesn't work on Windows, but is decently fast.
@@ -23,6 +24,14 @@ SYNC_TYPE = "vbox"
 # to an absolute path. By default, Apache is configured to look for a docroot
 # directory within this directory to serve from.
 SYNC_DIRECTORY = "www"
+
+# RESOURCES
+
+# The number of CPU cores to expose to the virtual machine.
+CPUS = 1
+
+# The maximum amount of memory in MB to expose to the virtual machine.
+MEMORY = 512
 
 # Vagrantfile API/syntax version. Don't touch unless you know what you're doing!
 VAGRANTFILE_API_VERSION = "2"
@@ -70,11 +79,14 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       # vb.gui = true
 
       # RESOURCE SETTINGS
-      # Uncomment and modify these lines to allocate more resources to your VM.
-      # vb.customize ["modifyvm", :id, "--memory", "2048"]
+      vb.customize ["modifyvm", :id, "--memory", MEMORY]
+
       ## ioapic is required for > 1 CPU core.
-      # vb.customize ["modifyvm", :id, "--ioapic", "on"]
-      # vb.customize ["modifyvm", :id, "--cpus", "4"]
+      if CPUS > 1
+        vb.customize ["modifyvm", :id, "--ioapic", "on"]
+      end
+
+      vb.customize ["modifyvm", :id, "--cpus", CPUS]
 
       # This fixes DNS lag issues with Virtualbox.
       vb.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]

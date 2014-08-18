@@ -72,8 +72,8 @@ PRIVATE NETWORK. Use this to easily jump around in the file.
        * Or, manually add a line to ```/etc/hosts``` or
         ```C:\Windows\System32\drivers\etc\hosts``` with your desired hostname
         and IP address.
-1. Set up FILE SYNCING by uncommenting the appropriate line in the Vagrantfile.
-   * No file syncing is set up by default.
+1. Set up FILE SYNCING by setting SYNC_TYPE and SYNC_DIRECTORY.
+   * By default Virtualbox syncing and a "www" directory are synced.
    * The only assumption is that whatever is mounted into ```/var/www``` has a
    docroot directory.
    * Most users will want to use NFS or rsync.
@@ -81,12 +81,10 @@ PRIVATE NETWORK. Use this to easily jump around in the file.
    switching to rsync over NFS as supported with Vagrant 1.5.
 1. Boot the VM with ```vagrant up```.
 1. Browse to the hostname you choose to see phpinfo or the code you have synced.
-1. Run ```sudo /vagrant/change-hostname <hostname>``` to tell the VM about
-   it's new hostname.
 
 ### Optional setup
 
-Configure RESOURCE SETTINGS to change the defaults of a single CPU core and
+Configure RESOURCES to change the defaults of a single CPU core and
 512MB of memory.
 
 Basebox Details
