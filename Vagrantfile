@@ -9,6 +9,16 @@ HOSTNAME = "trusty32-lamp"
 # Set a static IP for this box in addition to the DHCP IP.
 # STATIC_IP = "192.168.100.100"
 
+# FILE SYNCING
+# Choose between "vbox", "nfs", "rsync", or "none" sync types.
+#   - vbox is the simplest, but also the slowest.
+#   - NFS doesn't work on Windows, but is decently fast.
+#   - rsync is the fastest, but doesn't automatically run. It also has some
+#     performance issues in Vagrant 1.6. See
+#     https://github.com/smerrill/vagrant-gatling-rsync for a temporary
+#     solution.
+SYNC_TYPE = "vbox"
+
 # Vagrantfile API/syntax version. Don't touch unless you know what you're doing!
 VAGRANTFILE_API_VERSION = "2"
 
@@ -33,14 +43,17 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.hostname = HOSTNAME
 
   # FILE SYNCING
-  # Uncomment this to use basic vboxsf file syncing.
-  # config.vm.synced_folder "www", "/var/www"
+  case SYNC_TYPE
+    when "vbox"
+      config.vm.synced_folder "www", "/var/www"
 
-  # NFS sharing alternative.
-  # config.vm.synced_folder "www", "/var/www", type: "nfs"
+    when "nfs"
+      config.vm.synced_folder "www", "/var/www", type: "nfs"
 
-  # rsync sharing alternative.
-  # config.vm.synced_folder "www", "/var/www", type: "rsync", rsync__exclude: ".git/", group: "www-data", rsync__args: ["--verbose", "--archive", "--delete", "-z", "--chmod=g+rwX"
+    when "rsync"
+      config.vm.synced_folder "www", "/var/www", type: "rsync", rsync__exclude: ".git/", group: "www-data", rsync__args: ["--verbose", "--archive", "--delete", "-z", "--chmod=g+rwX"]
+
+  end
 
   #
   # Provider-specific configuration so you can fine-tune various
