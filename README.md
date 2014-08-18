@@ -18,6 +18,7 @@ trusty32-lamp-vm
   - [Package highlights](#user-content-package-highlights)
   - [PHP Debugging with xhprof](#user-content-php-debugging-with-xhprof)
   - [PHP Profiling with XHGui](#user-content-php-profiling-with-xhgui)
+  - [Fast database dumps and restores with MySQL Parallel](#user-content-fast-database-dumps-and-restores-with-MySQL-Parallel)
   - [Email Configuration](#user-content-email-configuration)
   - [Verifying basebox integrity](#user-content-verifying-basebox-integrity)
     - [Verifying the download when adding the box](#user-content-verifying-the-download-when-adding-the-box)
@@ -158,6 +159,14 @@ setup instructions.
 **To start profiling** simply append ```?xhprof=on``` to a request. This will
 set a cookie that will keep profiling enabled for the next hour, regardless of
 the query parameters. Browse to /xhgui to view your profiles.
+
+Fast database dumps and restores with MySQL Parallel
+----------------------------------------------------
+
+[MySQL Parallel](https://github.com/deviantintegral/mysql-parallel) is
+included to facilitate faster imports and exports of databases. Run
+```mysqldumpp``` and ```mysqlrestorep``` for details, or see
+```/opt/mysql-parallel```.
 
 Email Configuration
 -------------------
