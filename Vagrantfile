@@ -6,6 +6,15 @@
 # match your project.
 HOSTNAME = "trusty32-lamp"
 
+# Set this to true to add a public IP for this machine. The IP will be served
+# by whatever network gives your host an IP address. This is useful for testing
+# with mobile devices.
+#
+# This is disabled by default as it can break on some captive Wifi networks
+# like those in airprots or hotels. Turn this back off if your VM doesn't boot
+# in a new network environment!
+PUBLIC_NETWORK = FALSE
+
 # Set a static IP for this box in addition to the DHCP IP.
 # STATIC_IP = "192.168.100.100"
 
@@ -50,7 +59,10 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # Use this to allow access to the VM from outside of your host machine. This
   # is useful for testing with phones or tablets. However, it often does not
   # work on public Wifi networks, so it's disabled by default.
-  # config.vm.network "public_network"
+
+  if PUBLIC_NETWORK
+    config.vm.network "public_network"
+  end
 
   # HOSTNAME
   # Set the hostname.
