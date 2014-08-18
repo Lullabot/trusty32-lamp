@@ -19,6 +19,11 @@ HOSTNAME = "trusty32-lamp"
 #     solution.
 SYNC_TYPE = "vbox"
 
+# By default, sync a "www" directory within this project. This can be changed
+# to an absolute path. By default, Apache is configured to look for a docroot
+# directory within this directory to serve from.
+SYNC_DIRECTORY = "www"
+
 # Vagrantfile API/syntax version. Don't touch unless you know what you're doing!
 VAGRANTFILE_API_VERSION = "2"
 
@@ -45,13 +50,13 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # FILE SYNCING
   case SYNC_TYPE
     when "vbox"
-      config.vm.synced_folder "www", "/var/www"
+      config.vm.synced_folder SYNC_DIRECTORY, "/var/www"
 
     when "nfs"
-      config.vm.synced_folder "www", "/var/www", type: "nfs"
+      config.vm.synced_folder SYNC_DIRECTORY, "/var/www", type: "nfs"
 
     when "rsync"
-      config.vm.synced_folder "www", "/var/www", type: "rsync", rsync__exclude: ".git/", group: "www-data", rsync__args: ["--verbose", "--archive", "--delete", "-z", "--chmod=g+rwX"]
+      config.vm.synced_folder SYNC_DIRECTORY, "/var/www", type: "rsync", rsync__exclude: ".git/", group: "www-data", rsync__args: ["--verbose", "--archive", "--delete", "-z", "--chmod=g+rwX"]
 
   end
 
