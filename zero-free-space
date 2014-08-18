@@ -33,3 +33,5 @@ do
 done
 
 echo " zeroing complete."
+
+cleanup
