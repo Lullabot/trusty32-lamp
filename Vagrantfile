@@ -69,6 +69,15 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.hostname = HOSTNAME
 
   # FILE SYNCING
+
+  # Create our sync directory if needed.
+  if SYNC_TYPE != "none" && !Dir.exists?(SYNC_DIRECTORY)
+    Dir.mkdir(SYNC_DIRECTORY)
+    Dir.mkdir(SYNC_DIRECTORY + "/docroot")
+    index = "<?php phpinfo();\n"
+    File.open(SYNC_DIRECTORY + "/docroot/index.php", 'w') { |f| f.write(index) }
+  end
+
   case SYNC_TYPE
     when "vbox"
       config.vm.synced_folder SYNC_DIRECTORY, "/var/www"
