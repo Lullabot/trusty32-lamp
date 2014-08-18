@@ -148,7 +148,7 @@ through this code as unmapped code.
 * Set a breakpoint within your project, and run to it.
 * Or, download XHGui to your machine and add it to the include path in your
   project. Map the XHGui source directory to /opt/xhgui on the "remote"
-  machine.
+  machine. The exact configuration for this is IDE dependent.
 
 PHP Profiling with XHGui
 ------------------------
