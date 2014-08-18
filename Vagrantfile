@@ -30,7 +30,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # config.vm.synced_folder "www", "/var/www", type: "nfs"
 
   # rsync sharing alternative.
-  # config.vm.synced_folder "www", "/var/www", type: "rsync", rsync__exclude: ".git/", group: "www-data"
+  # config.vm.synced_folder "www", "/var/www", type: "rsync", rsync__exclude: ".git/", group: "www-data", rsync__args: ["--verbose", "--archive", "--delete", "-z", "--chmod=g+rwX"
 
   #
   # Provider-specific configuration so you can fine-tune various
