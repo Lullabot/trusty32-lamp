@@ -1,6 +1,10 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
+# NETWORKING
+# Set a static IP for this box in addition to the DHCP IP.
+# STATIC_IP = "192.168.100.100"
+
 # Vagrantfile API/syntax version. Don't touch unless you know what you're doing!
 VAGRANTFILE_API_VERSION = "2"
 
@@ -11,7 +15,9 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.network "private_network", type: "dhcp"
 
   # Use this instead to hard code a specific IP address.
-  # config.vm.network "private_network", ip: "192.168.33.10"
+  if defined? STATIC_IP
+    config.vm.network "private_network", ip: STATIC_IP
+  end
 
   # Use this to allow access to the VM from outside of your host machine. This
   # is useful for testing with phones or tablets. However, it often does not
