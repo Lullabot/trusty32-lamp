@@ -113,6 +113,22 @@ Package highlights
 
 See [PACKAGES.txt](PACKAGES.txt) for the full list.
 
+PHP Debugging with xhprof
+-------------------------
+
+xhprof is installed and preconfigured to allow remote connections for
+debugging. See your editor or IDE for instructions on how to start a
+debugging session.
+
+It is likely that your project doesn't include the [XHGui code](https://github.com/perftools/xhgui)
+that is included to start profiling. When debugging, your IDE might show steps
+through this code as unmapped code.
+
+* Set a breakpoint within your project, and run to it.
+* Or, download XHGui to your machine and add it to the include path in your
+  project. Map the XHGui source directory to /opt/xhgui on the "remote"
+  machine.
+
 PHP Profiling with XHGui
 ------------------------
 
