@@ -97,6 +97,8 @@ Basebox Details
 repository. Run ```sudo git log -p``` in /etc to see all of the configuration
 changes made since the initial installation.
 
+The git repository for /etc is available at [trusty32-lamp-etc](https://github.com/Lullabot/trusty32-lamp-etc).
+
 ### Permissions
 
 The default group for the vagrant user has been changed to www-data. As well,
