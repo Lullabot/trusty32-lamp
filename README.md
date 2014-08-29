@@ -20,6 +20,7 @@ trusty32-lamp-vm
   - [PHP Profiling with XHGui](#user-content-php-profiling-with-xhgui)
   - [Fast database dumps and restores with MySQL Parallel](#user-content-fast-database-dumps-and-restores-with-MySQL-Parallel)
   - [Email Configuration](#user-content-email-configuration)
+  - [Drush Alias Autoconfiguration](#drush-alias-autoconfiguration)
   - [Verifying basebox integrity](#user-content-verifying-basebox-integrity)
     - [Verifying the download when adding the box](#user-content-verifying-the-download-when-adding-the-box)
     - [Verifying the box manually](#user-content-verifying-the-box-manually)
@@ -181,6 +182,25 @@ system. If email is required, try either:
   delivery. Mail can then be viewed by running the 'mail' command.
 * Redirecting all mail to another address by following "Method 1" over at
   [Oh no! My laptop just sent notifications to 10,000 users](https://www.lullabot.com/blog/article/oh-no-my-laptop-just-sent-notifications-10000-users).
+
+Drush Alias Autoconfiguration
+-----------------------------
+
+For Drupal developers, this repository includes a Drush alias that
+automatically creates an alias of @HOSTNAME.local. A small snippet must be
+included in ~/.drushrc for this file to be loaded by Drush:
+
+```php
+<?php
+$dir = getcwd();
+while (!in_array($dir, $options['alias-path'])) {
+  $options['alias-path'][] = $dir;
+  $dir = dirname($dir);
+}
+```
+
+For advanced networking configurations, simply add a custom alias at the bottom
+of aliases.drushrc.php.
 
 Verifying basebox integrity
 ---------------------------
