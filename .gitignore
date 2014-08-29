@@ -1,0 +1,9 @@
+# Vagrant generated files.
+.vagrant
+
+# Common directories used by Vagrant boxes.
+www
+
+# Directories used when developing (typically other projects)
+etc
+lmm
