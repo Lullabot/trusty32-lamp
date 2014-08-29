@@ -168,8 +168,7 @@ Fast database dumps and restores with MySQL Parallel
 
 [MySQL Parallel](https://github.com/deviantintegral/mysql-parallel) is
 included to facilitate faster imports and exports of databases. Run
-```mysqldumpp``` and ```mysqlrestorep``` for details, or see
-```/opt/mysql-parallel```.
+```mysqldumpp``` and ```mysqlrestorep``` for details, or see ```/opt/mysql-parallel```.
 
 Email Configuration
 -------------------
