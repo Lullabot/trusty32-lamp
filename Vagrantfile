@@ -71,11 +71,16 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # FILE SYNCING
 
   # Create our sync directory if needed.
-  if SYNC_TYPE != "none" && !Dir.exists?(SYNC_DIRECTORY)
-    Dir.mkdir(SYNC_DIRECTORY)
-    Dir.mkdir(SYNC_DIRECTORY + "/docroot")
+  vagrant_directory = File.dirname(__FILE__)
+  if SYNC_DIRECTORY[0,1] != "/" || SYNC_DIRECTORY[1,3] != ":\\"
+    share_directory = vagrant_directory + "/" + SYNC_DIRECTORY
+  end
+
+  if SYNC_TYPE != "none" && !Dir.exists?(share_directory)
+    Dir.mkdir(share_directory)
+    Dir.mkdir(share_directory + "/docroot")
     index = "<?php phpinfo();\n"
-    File.open(SYNC_DIRECTORY + "/docroot/index.php", 'w') { |f| f.write(index) }
+    File.open(SHARE_DIRECTORY + "/docroot/index.php", 'w') { |f| f.write(index) }
   end
 
   case SYNC_TYPE
