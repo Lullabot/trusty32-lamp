@@ -187,7 +187,8 @@ Drush Alias Autoconfiguration
 
 For Drupal developers, this repository includes a Drush alias that
 automatically creates an alias of @HOSTNAME.local. A small snippet must be
-included in ~/.drushrc for this file to be loaded by Drush:
+included in ~/.drushrc (or ~/.drush/drushrc.php) in the host machine for this
+file to be loaded by Drush:
 
 ```php
 <?php
