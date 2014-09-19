@@ -56,6 +56,11 @@ Goals
 Setup instructions
 ------------------
 
+This Vagrant box will always support the latest versions of VirtualBox and
+Vagrant, which are both updated regularly. If you encounter any problems while
+following the instructions below, please double-check that you are using the
+latest versions of VirtualBox and Vagrant.
+
 Each modification in the Vagrantfile is marked with an all-caps header such as
 PRIVATE NETWORK. Use this to easily jump around in the file.
 
