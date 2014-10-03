@@ -84,7 +84,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     Dir.mkdir(share_directory)
     Dir.mkdir(share_directory + "/docroot")
     index = "<?php phpinfo();\n"
-    File.open(SHARE_DIRECTORY + "/docroot/index.php", 'w') { |f| f.write(index) }
+    File.open(share_directory + "/docroot/index.php", 'w') { |f| f.write(index) }
   end
 
   case SYNC_TYPE
