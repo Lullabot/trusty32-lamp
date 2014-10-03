@@ -4,7 +4,7 @@
 # NETWORKING
 # Set the hostname of the VM. This will almost always need to be changed to
 # match your project.
-HOSTNAME = "trusty32-lamp"
+HOSTNAME = "trusty-lamp"
 
 # Set this to true to add a public IP for this machine. The IP will be served
 # by whatever network gives your host an IP address. This is useful for testing
@@ -35,6 +35,10 @@ SYNC_TYPE = "vbox"
 SYNC_DIRECTORY = "www"
 
 # RESOURCES
+
+# The architecture (32 or 64 bit) of the virtual machine. This changes the
+# base box that is used.
+ARCH = 32
 
 # The number of CPU cores to expose to the virtual machine.
 CPUS = 1
@@ -123,7 +127,11 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # please see the online documentation at vagrantup.com.
 
   # Every Vagrant virtual environment requires a box to build off of.
-  config.vm.box = "trusty32-lamp"
+  if ARCH == 32
+    config.vm.box = "trusty32-lamp"
+  elsif ARCH == 64
+    config.vm.box = "trusty64-lamp"
+  end
 
   # The url from where the 'config.vm.box' box will be fetched if it
   # doesn't already exist on the user's system.
