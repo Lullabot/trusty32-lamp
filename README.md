@@ -67,6 +67,8 @@ PRIVATE NETWORK. Use this to easily jump around in the file.
 1. Add this base box to Vagrant with:
    * ```vagrant box add --name trusty32-lamp
   https://www.dropbox.com/sh/oy1av6uhod3yeto/AADzTDkFKJ2qXflAvJh57FKla/trusty32-lamp.box?dl=1```.
+   * Optionally add the 64-bit base box with ```vagrant box add --name trusty64-lamp
+  https://www.dropbox.com/s/vu0lz1kl0kafx8u/trusty64-lamp.box?dl=1```.
    * Or optionally [verify your download](#verifying-basebox-integrity).
 1. Clone ```this repo``` to get the base Vagrantfile.
 1. Decide on a hostname for your VM.
@@ -92,7 +94,9 @@ PRIVATE NETWORK. Use this to easily jump around in the file.
 ### Optional setup
 
 Configure RESOURCES to change the defaults of a single CPU core and
-512MB of memory.
+512MB of memory. Change ARCH under RESOURCES to 64 to run a 64-bit box instead.
+This will increase the base memory requirements for the box to boot from around
+180MB to 250MB.
 
 Basebox Details
 ---------------
