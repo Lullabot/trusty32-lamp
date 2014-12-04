@@ -43,8 +43,11 @@ ARCH = 32
 # The number of CPU cores to expose to the virtual machine.
 CPUS = 1
 
-# The maximum amount of memory in MB to expose to the virtual machine.
-MEMORY = 512
+# The maximum amount of memory in MB to expose to the virtual machine. MySQL is
+# configured to use ~384MB of memory for caches, so if this is reduced be sure
+# to update /etc/mysql/conf.d/local.cnf and possibly Apache's MaxClients as
+# well.
+MEMORY = 1024
 
 # Vagrantfile API/syntax version. Don't touch unless you know what you're doing!
 VAGRANTFILE_API_VERSION = "2"
