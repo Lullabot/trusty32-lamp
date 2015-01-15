@@ -125,6 +125,17 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       vb.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
   end
 
+  config.vm.provider "vmware_fusion" do |v|
+      v.vmx["memsize"] = MEMORY
+      v.vmx["numvcpus"] = CPUS
+  end
+
+  # Untested as I am not using VMWare Workstation.
+  config.vm.provider "vmware_workstation" do |v|
+      v.vmx["memsize"] = MEMORY
+      v.vmx["numvcpus"] = CPUS
+  end
+
   # All Vagrant configuration is done here. The most common configuration
   # options are documented and commented below. For a complete reference,
   # please see the online documentation at vagrantup.com.
