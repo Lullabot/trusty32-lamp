@@ -49,6 +49,14 @@ CPUS = 1
 # well.
 MEMORY = 1024
 
+# Vagrant now generates a unique SSH key and installs it into a VM when it is
+# first booted. This complicates SSH'ing to machines on other hosts, since you
+# have to manually copy over the SSH key.
+#
+# Set this to true to use the old-style "insecure" SSH key. If you do this,
+# know that anyone on the local network can SSH in to your VM.
+USE_INSECURE_KEY = true
+
 # Vagrantfile API/syntax version. Don't touch unless you know what you're doing!
 VAGRANTFILE_API_VERSION = "2"
 
@@ -164,6 +172,9 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # If true, then any SSH connections made will enable agent forwarding.
   # Default value: false
   # config.ssh.forward_agent = true
+
+  # Replace the SSH key of VMs on boot.
+  config.ssh.insert_key = USE_INSECURE_KEY
 
   # Vagrant sets the hostname after the VM has run services. Restart Avahi to
   # ensure that it is broadcasting an updated hostname.
