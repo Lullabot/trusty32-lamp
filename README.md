@@ -70,6 +70,7 @@ PRIVATE NETWORK. Use this to easily jump around in the file.
   https://www.dropbox.com/sh/oy1av6uhod3yeto/AADzTDkFKJ2qXflAvJh57FKla/trusty32-lamp.box?dl=1```.
    * Optionally add the 64-bit base box with ```vagrant box add --name trusty64-lamp
   https://www.dropbox.com/s/vu0lz1kl0kafx8u/trusty64-lamp.box?dl=1```.
+   * Optionally add the 64-bit VMWare base box with `vagrant box add --provider vmware_fusion --name trusty64-lamp`
    * Or optionally [verify your download](#verifying-basebox-integrity).
 1. Clone ```this repo``` to get the base Vagrantfile.
 1. Decide on a hostname for your VM.
@@ -89,7 +90,7 @@ PRIVATE NETWORK. Use this to easily jump around in the file.
    * Most users will want to use NFS or rsync.
    * For larger codebases, a significant performance improvement can be seen by
    switching to rsync over NFS as supported with Vagrant 1.5.
-1. Boot the VM with ```vagrant up```.
+1. Boot the VM with ```vagrant up [--provider vmware_fusion]```.
 1. Browse to the hostname you choose to see phpinfo or the code you have synced.
 
 ### Optional setup
@@ -263,7 +264,7 @@ Updating baseboxes
      * `compact-vmdk box-disk1.vmdk`
 1. Package the box for:
    * *Virtualbox:* `vagrant package --output trusty32-lamp.box`
-   * *VMWare:* `tar -cf...`
+   * *VMWare:* `cd <path-to-the-vm> && tar cvf -  ./* | pigz -v > ../trusty64-lamp-vmware.box`
 1. `shasum trusty32-lamp.box > trusty32-lamp.box.sha1`
 1. Sign the sha1sum with GPG.
 `gpg -sabu <your-email> trusty32-lamp.box.sha1`
