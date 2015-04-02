@@ -57,6 +57,11 @@ MEMORY = 1024
 # know that anyone on the local network can SSH in to your VM.
 USE_INSECURE_KEY = false
 
+# Provision this VM on boot using Puppet. This is used when updating the base
+# boxes, and isn't required for day-to-day use. When turning on, a box will
+# need to be rebooted so Vagrant can mount the proper directories.
+PROVISION = true
+
 # Vagrantfile API/syntax version. Don't touch unless you know what you're doing!
 VAGRANTFILE_API_VERSION = "2"
 
@@ -209,10 +214,15 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # #               Managed by Puppet.\n"
   # # }
   #
-  # config.vm.provision "puppet" do |puppet|
-  #   puppet.manifests_path = "manifests"
-  #   puppet.manifest_file  = "site.pp"
-  # end
+
+  if PROVISION == true
+    config.vm.provision "puppet", run: "always" do |puppet|
+      puppet.manifests_path = "manifests"
+      puppet.module_path = "modules"
+      puppet.manifest_file = "site.pp"
+      puppet.options = "--hiera_config /vagrant/hiera.yaml"
+    end
+  end
 
   # Enable provisioning with chef solo, specifying a cookbooks path, roles
   # path, and data_bags path (all relative to this Vagrantfile), and adding
