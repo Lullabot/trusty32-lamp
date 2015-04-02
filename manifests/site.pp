@@ -23,6 +23,35 @@ user { 'vagrant':
   groups => ['vagrant', 'adm'],
 }
 
+vcsrepo { '/opt/drush':
+  ensure => 'present',
+  provider => git,
+  source => 'https://github.com/drush-ops/drush.git',
+  revision => '6.6.0',
+}
+
+# ensure => 'latest' is currently broken, so we use explicit revisions.
+# https://tickets.puppetlabs.com/browse/MODULES-1800
+vcsrepo { '/opt/lmm':
+  ensure => 'present',
+  provider => git,
+  source => 'https://github.com/Lullabot/lmm.git',
+  revision => '742a5817728ccefa1981e5235de9394962e11d74',
+}
+
+vcsrepo { '/opt/mysql-parallel':
+  ensure => 'present',
+  provider => git,
+  source => 'https://github.com/deviantintegral/mysql-parallel.git',
+  revision => 'ab233aa28f747c2cc64035ecea39bfc7082f5b75',
+}
+
+vcsrepo { '/opt/xhgui':
+  ensure => 'present',
+  provider => git,
+  source => 'https://github.com/perftools/xhgui.git',
+}
+
 package { 'apache2':
   ensure => 'latest',
 }
