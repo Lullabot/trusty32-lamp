@@ -25,6 +25,7 @@ trusty32-lamp-vm
     - [Verifying the download when adding the box](#user-content-verifying-the-download-when-adding-the-box)
     - [Verifying the box manually](#user-content-verifying-the-box-manually)
     - [Validating my identity](#user-content-validating-my-identity)
+    - [Updating base boxes](#user-content-updating-base-boxes)
 
 There are a ton of Vagrant base boxes available for web developers. Or,
 Chef / Puppet configurations to take a basic OS install and configure it "just
@@ -235,3 +236,36 @@ GPG and SHA1 signatures are available in the
 1. ```gpg --verify trusty32-lamp.box.asc```
    * GPG will throw a warning about the signature not being trusted unless you
      or someone else in your web of trust has signed my key.
+
+Updating baseboxes
+------------------
+
+1. `vagrant destroy` any existing box in your working directory.
+1. Set `USE_INSECURE_KEY` to true in the `Vagrantfile`.
+1. Set `PROVISIONING` to true in the `Vagrantfile`.
+1. Run `vagrant up`.
+1. Run `vagrant reload` to verify any upgraded kernels.
+1. Push any changes in `/etc/` to https://github.com/Lullabot/trusty32-lamp-etc.
+   * Any explicit changes should be manually committed and shared with other
+     repository branches.
+1. Use `apt-get purge` to remove any old linux-image and linux-header packages to
+   save disk space.
+1. Run `vagrant reload` just to make sure grub is still working.
+1. Run `vagrant ssh -c /vagrant/zero-free-space` to zero free space on the
+   disk.
+1. Halt the box.
+1. Compact the VMDK file with:
+   * *Using VMWare:*
+     * `/Applications/VMware\ Fusion.app/Contents/Library/vmware-vdiskmanager -d box-disk1.vmdk`<br />
+       `/Applications/VMware\ Fusion.app/Contents/Library/vmware-vdiskmanager -k box-disk1.vmdk`
+   * *Using compact-vmdk:*
+     * Make sure qemu-img is available.
+     * `compact-vmdk box-disk1.vmdk`
+1. Package the box for:
+   * *Virtualbox:* `vagrant package --output trusty32-lamp.box`
+   * *VMWare:* `tar -cf...`
+1. `shasum trusty32-lamp.box > trusty32-lamp.box.sha1`
+1. Sign the sha1sum with GPG.
+`gpg -sabu <your-email> trusty32-lamp.box.sha1`
+1. Sign the base box with GPG.
+`gpg -sabu <your-email> trusty32-lamp.box`
