@@ -55,7 +55,7 @@ MEMORY = 1024
 #
 # Set this to true to use the old-style "insecure" SSH key. If you do this,
 # know that anyone on the local network can SSH in to your VM.
-USE_INSECURE_KEY = true
+USE_INSECURE_KEY = false
 
 # Vagrantfile API/syntax version. Don't touch unless you know what you're doing!
 VAGRANTFILE_API_VERSION = "2"
