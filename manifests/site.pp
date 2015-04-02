@@ -16,6 +16,13 @@ exec { "clean apt-cache":
   require => Exec["apt-get dist-upgrade"],
 }
 
+# We change vagrant's group to www-data to prevent permissions conflicts with
+# drush and apache processes.
+user { 'vagrant':
+  gid => 'www-data',
+  groups => ['vagrant', 'adm'],
+}
+
 package { 'apache2':
   ensure => 'latest',
 }
