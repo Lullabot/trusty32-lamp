@@ -4,7 +4,7 @@
 # NETWORKING
 # Set the hostname of the VM. This will almost always need to be changed to
 # match your project.
-HOSTNAME = "trusty-lamp"
+HOSTNAME = "trusty-lamp.local"
 
 # Set this to true to add a public IP for this machine. The IP will be served
 # by whatever network gives your host an IP address. This is useful for testing
