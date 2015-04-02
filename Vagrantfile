@@ -174,7 +174,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # config.ssh.forward_agent = true
 
   # Replace the SSH key of VMs on boot.
-  config.ssh.insert_key = USE_INSECURE_KEY
+  config.ssh.insert_key = !USE_INSECURE_KEY
 
   # Vagrant sets the hostname after the VM has run services. Restart Avahi to
   # ensure that it is broadcasting an updated hostname.
