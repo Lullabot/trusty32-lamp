@@ -60,7 +60,7 @@ USE_INSECURE_KEY = false
 # Provision this VM on boot using Puppet. This is used when updating the base
 # boxes, and isn't required for day-to-day use. When turning on, a box will
 # need to be rebooted so Vagrant can mount the proper directories.
-PROVISION = true
+PROVISION = false
 
 # Vagrantfile API/syntax version. Don't touch unless you know what you're doing!
 VAGRANTFILE_API_VERSION = "2"
