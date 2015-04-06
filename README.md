@@ -64,6 +64,8 @@ latest versions of VirtualBox and Vagrant.
 Each modification in the Vagrantfile is marked with an all-caps header such as
 PRIVATE NETWORK. Use this to easily jump around in the file.
 
+A listing of all base boxes and signatures is [on Dropbox](https://www.dropbox.com/sh/oy1av6uhod3yeto/AADdDksbAXtEmC6Aj4q-QGEva?dl=0).
+
 1. Add this base box to Vagrant with:
    * ```vagrant box add --name trusty32-lamp
   https://www.dropbox.com/sh/oy1av6uhod3yeto/AADzTDkFKJ2qXflAvJh57FKla/trusty32-lamp.box?dl=1```.
