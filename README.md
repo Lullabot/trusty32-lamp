@@ -272,3 +272,22 @@ Updating baseboxes
 `gpg -sabu <your-email> trusty32-lamp.box.sha1`
 1. Sign the base box with GPG.
 `gpg -sabu <your-email> trusty32-lamp.box`
+
+Converting a VirtualBox box to VMWare
+-------------------------------------
+
+While it's easiest to update the existing VMWare base box, sometimes it's
+better to update a VirtualBox box and then convert it work with VMWare.
+
+1. `vagrant up` the base box in VirtualBox.
+1. Export the virtual machine to an OVF file using the GUI.
+1. Import the VM into VMWare, ignoring any warnings.
+1. Add a CD drive to the VM.
+1. Install VMWare tools.
+1. Reboot the VM to verify that the VMWare tools are working correctly.
+1. Use `zero-free-space` inside the VM to aid in disk compacting.
+1. Halt the VM.
+1. Use `vmware-vdiskmanager` as above to defrag and compact each VMDK.
+1. Create [metadata.json](https://docs.vagrantup.com/v2/boxes/format.html) inside of the VM package directory.
+1. Remove any log or other unneeded files from the package directory.
+1. Package the box using the above tar command.
