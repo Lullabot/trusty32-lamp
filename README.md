@@ -25,6 +25,7 @@ trusty32-lamp-vm
     - [Verifying the download when adding the box](#user-content-verifying-the-download-when-adding-the-box)
     - [Verifying the box manually](#user-content-verifying-the-box-manually)
     - [Validating my identity](#user-content-validating-my-identity)
+    - [Updating base boxes](#user-content-updating-base-boxes)
 
 There are a ton of Vagrant base boxes available for web developers. Or,
 Chef / Puppet configurations to take a basic OS install and configure it "just
@@ -71,6 +72,7 @@ A listing of all base boxes and signatures is [on Dropbox](https://www.dropbox.c
   https://www.dropbox.com/sh/oy1av6uhod3yeto/AADzTDkFKJ2qXflAvJh57FKla/trusty32-lamp.box?dl=1```.
    * Optionally add the 64-bit base box with ```vagrant box add --name trusty64-lamp
   https://www.dropbox.com/s/vu0lz1kl0kafx8u/trusty64-lamp.box?dl=1```.
+   * Optionally add the 64-bit VMWare base box with `vagrant box add --provider vmware_fusion --name trusty64-lamp`
    * Or optionally [verify your download](#verifying-basebox-integrity).
 1. Clone ```this repo``` to get the base Vagrantfile.
 1. Decide on a hostname for your VM.
@@ -90,7 +92,7 @@ A listing of all base boxes and signatures is [on Dropbox](https://www.dropbox.c
    * Most users will want to use NFS or rsync.
    * For larger codebases, a significant performance improvement can be seen by
    switching to rsync over NFS as supported with Vagrant 1.5.
-1. Boot the VM with ```vagrant up```.
+1. Boot the VM with ```vagrant up [--provider vmware_fusion]```.
 1. Browse to the hostname you choose to see phpinfo or the code you have synced.
 
 ### Optional setup
@@ -237,3 +239,36 @@ GPG and SHA1 signatures are available in the
 1. ```gpg --verify trusty32-lamp.box.asc```
    * GPG will throw a warning about the signature not being trusted unless you
      or someone else in your web of trust has signed my key.
+
+Updating baseboxes
+------------------
+
+1. `vagrant destroy` any existing box in your working directory.
+1. Set `USE_INSECURE_KEY` to true in the `Vagrantfile`.
+1. Set `PROVISIONING` to true in the `Vagrantfile`.
+1. Run `vagrant up`.
+1. Run `vagrant reload` to verify any upgraded kernels.
+1. Push any changes in `/etc/` to https://github.com/Lullabot/trusty32-lamp-etc.
+   * Any explicit changes should be manually committed and shared with other
+     repository branches.
+1. Use `apt-get purge` to remove any old linux-image and linux-header packages to
+   save disk space.
+1. Run `vagrant reload` just to make sure grub is still working.
+1. Run `vagrant ssh -c /vagrant/zero-free-space` to zero free space on the
+   disk.
+1. Halt the box.
+1. Compact the VMDK file with:
+   * *Using VMWare:*
+     * `/Applications/VMware\ Fusion.app/Contents/Library/vmware-vdiskmanager -d box-disk1.vmdk`<br />
+       `/Applications/VMware\ Fusion.app/Contents/Library/vmware-vdiskmanager -k box-disk1.vmdk`
+   * *Using compact-vmdk:*
+     * Make sure qemu-img is available.
+     * `compact-vmdk box-disk1.vmdk`
+1. Package the box for:
+   * *Virtualbox:* `vagrant package --output trusty32-lamp.box`
+   * *VMWare:* `cd <path-to-the-vm> && tar cvf -  ./* | pigz -v > ../trusty64-lamp-vmware.box`
+1. `shasum trusty32-lamp.box > trusty32-lamp.box.sha1`
+1. Sign the sha1sum with GPG.
+`gpg -sabu <your-email> trusty32-lamp.box.sha1`
+1. Sign the base box with GPG.
+`gpg -sabu <your-email> trusty32-lamp.box`

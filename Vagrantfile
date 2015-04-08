@@ -4,7 +4,7 @@
 # NETWORKING
 # Set the hostname of the VM. This will almost always need to be changed to
 # match your project.
-HOSTNAME = "trusty-lamp"
+HOSTNAME = "trusty-lamp.local"
 
 # Set this to true to add a public IP for this machine. The IP will be served
 # by whatever network gives your host an IP address. This is useful for testing
@@ -56,6 +56,11 @@ MEMORY = 1024
 # Set this to true to use the old-style "insecure" SSH key. If you do this,
 # know that anyone on the local network can SSH in to your VM.
 USE_INSECURE_KEY = false
+
+# Provision this VM on boot using Puppet. This is used when updating the base
+# boxes, and isn't required for day-to-day use. When turning on, a box will
+# need to be rebooted so Vagrant can mount the proper directories.
+PROVISION = false
 
 # Vagrantfile API/syntax version. Don't touch unless you know what you're doing!
 VAGRANTFILE_API_VERSION = "2"
@@ -209,10 +214,15 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # #               Managed by Puppet.\n"
   # # }
   #
-  # config.vm.provision "puppet" do |puppet|
-  #   puppet.manifests_path = "manifests"
-  #   puppet.manifest_file  = "site.pp"
-  # end
+
+  if PROVISION == true
+    config.vm.provision "puppet", run: "always" do |puppet|
+      puppet.manifests_path = "manifests"
+      puppet.module_path = "modules"
+      puppet.manifest_file = "site.pp"
+      puppet.options = "--hiera_config /vagrant/hiera.yaml"
+    end
+  end
 
   # Enable provisioning with chef solo, specifying a cookbooks path, roles
   # path, and data_bags path (all relative to this Vagrantfile), and adding
