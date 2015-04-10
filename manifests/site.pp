@@ -23,6 +23,18 @@ user { 'vagrant':
   groups => ['vagrant', 'adm'],
 }
 
+file { 'xhgui config':
+  path => '/opt/xhgui/config/config.php',
+  ensure => 'link',
+  target => '/etc/php5/xhgui/config.php',
+}
+
+file { 'xhgui htaccess':
+  path => '/opt/xhgui/webroot/.htaccess',
+  ensure => 'link',
+  target => '/etc/php5/xhgui/htaccess',
+}
+
 vcsrepo { '/opt/drush':
   ensure => 'present',
   provider => git,
