@@ -23,6 +23,12 @@ user { 'vagrant':
   groups => ['vagrant', 'adm'],
 }
 
+file { 'php-debug':
+  path => '/usr/local/bin/php-debug',
+  ensure => 'link',
+  target => '/vagrant/php-debug',
+}
+
 vcsrepo { '/opt/drush':
   ensure => 'present',
   provider => git,
