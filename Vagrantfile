@@ -141,6 +141,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.provider "vmware_fusion" do |v|
       v.vmx["memsize"] = MEMORY
       v.vmx["numvcpus"] = CPUS
+      v.vmx["tools.synctime"] = TRUE
   end
 
   # Untested as I am not using VMWare Workstation.

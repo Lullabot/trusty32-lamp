@@ -23,6 +23,12 @@ user { 'vagrant':
   groups => ['vagrant', 'adm'],
 }
 
+file { 'php-debug':
+  path => '/usr/local/bin/php-debug',
+  ensure => 'link',
+  target => '/vagrant/php-debug',
+}
+
 file { 'xhgui config':
   path => '/opt/xhgui/config/config.php',
   ensure => 'link',
