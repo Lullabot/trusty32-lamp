@@ -3,7 +3,8 @@
 
 # NETWORKING
 # Set the hostname of the VM. This will almost always need to be changed to
-# match your project.
+# match your project. This should be fully-qualified, ending in a TLD like
+# .local or .lan.
 HOSTNAME = "trusty-lamp.local"
 
 # Set this to true to add a public IP for this machine. The IP will be served
