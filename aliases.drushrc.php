@@ -23,8 +23,7 @@ $matches = array();
 preg_match('!HOSTNAME *= *"([^"]*)".*!', $contents, $matches);
 
 if (isset($matches[1])) {
-  $hostname = $matches[1];
-  $fqdn = $hostname . '.local';
+  $fqdn = $matches[1];
   $aliases[$fqdn] = array(
     'uri' => $fqdn,
     'remote-host' => $fqdn,
