@@ -156,6 +156,9 @@ debugging. See your editor or IDE for instructions on how to start a
 debugging session. For PHPStorm, the [bookmarklet generator](https://www.jetbrains.com/phpstorm/marklets/)
 works well.
 
+For CLI and Drush debugging, use the included `php-debug` script to start a
+shell with debugging enabled.
+
 PHP Profiling with XHGui
 ------------------------
 
