@@ -41,6 +41,12 @@ file { 'xhgui htaccess':
   target => '/etc/php5/xhgui/htaccess',
 }
 
+file { 'lmm':
+  path => '/usr/local/sbin/lmm',
+  ensure => 'link',
+  target => '/opt/lmm/lmm',
+}
+
 vcsrepo { '/opt/drush':
   ensure => 'present',
   provider => git,
