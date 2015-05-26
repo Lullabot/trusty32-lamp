@@ -1,7 +1,7 @@
 class { 'apt':
   always_apt_update    => true,
   apt_update_frequency => 'always',
-  fancy_progress       => true
+  fancy_progress       => false
 }
 
 exec { "apt-get dist-upgrade":
