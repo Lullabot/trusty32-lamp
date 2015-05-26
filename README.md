@@ -235,7 +235,7 @@ GPG and SHA1 signatures are available in the
 
 1. Download the box directly.
 1. Download the corresponding .asc file.
-1. ```gpg --recv-keys CDCAA3E1 # Or download CDCAA3E1.key from dropbox and import it.```
+1. ```gpg --recv-keys CEBFC72B # Or download CEBFC72B.asc from dropbox and import it.```
 1. ```gpg --verify trusty32-lamp.box.asc```
    * GPG will throw a warning about the signature not being trusted unless you
      or someone else in your web of trust has signed my key.
