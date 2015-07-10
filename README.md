@@ -24,7 +24,7 @@ trusty32-lamp-vm
   - [Verifying the download when adding the box](#user-content-verifying-the-download-when-adding-the-box)
   - [Verifying the box manually](#user-content-verifying-the-box-manually)
   - [Validating my identity](#user-content-validating-my-identity)
-  - [Updating base boxes](#user-content-updating-base-boxes)
+- [Updating base boxes](#updating-base-boxes)
 
 There are a ton of Vagrant base boxes available for web developers. Or,
 Chef / Puppet configurations to take a basic OS install and configure it "just
