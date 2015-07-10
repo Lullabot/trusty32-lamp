@@ -15,6 +15,7 @@ aptitude
 aptitude-common
 at
 augeas-lenses
+avahi-daemon
 base-files
 base-passwd
 bash
@@ -53,6 +54,8 @@ debconf-utils
 debianutils
 dh-python
 diffutils
+distro-info
+distro-info-data
 dkms
 dmidecode
 dmsetup
@@ -72,7 +75,6 @@ facter
 fakeroot
 file
 findutils
-firefox-locale-en
 fontconfig
 fontconfig-config
 fonts-dejavu-core
@@ -140,6 +142,7 @@ language-pack-en
 language-pack-en-base
 language-selector-common
 laptop-detect
+lbzip2
 less
 libaccountsservice0:i386
 libacl1:i386
@@ -167,6 +170,7 @@ libaugeas0
 libavahi-client3:i386
 libavahi-common-data:i386
 libavahi-common3:i386
+libavahi-core7:i386
 libbind9-90
 libblkid1:i386
 libboost-filesystem1.54.0:i386
@@ -197,6 +201,7 @@ libcupsimage2:i386
 libcurl3:i386
 libcurl3-gnutls:i386
 libcwidget3
+libdaemon0
 libdatrie1:i386
 libdb5.3:i386
 libdbd-mysql-perl
@@ -316,6 +321,7 @@ libnfnetlink0:i386
 libnfsidmap2:i386
 libnih-dbus1:i386
 libnih1:i386
+libnss-mdns:i386
 libnuma1:i386
 libopenexr6:i386
 libp11-kit0:i386
@@ -385,6 +391,7 @@ libsystemd-login0:i386
 libtasn1-3:i386
 libtasn1-6:i386
 libtcmalloc-minimal4
+libterm-readkey-perl
 libtext-charwidth-perl
 libtext-iconv-perl
 libtext-wrapi18n-perl
@@ -419,14 +426,11 @@ libxpm4:i386
 libxrender1:i386
 libxtables10
 libyaml-0-2:i386
-linux-headers-3.13.0-24
-linux-headers-3.13.0-24-generic
-linux-headers-3.13.0-29
-linux-headers-3.13.0-29-generic
+linux-headers-3.13.0-48
+linux-headers-3.13.0-48-generic
 linux-headers-generic
 linux-headers-virtual
-linux-image-3.13.0-24-generic
-linux-image-3.13.0-29-generic
+linux-image-3.13.0-48-generic
 linux-image-virtual
 linux-libc-dev:i386
 linux-virtual
@@ -481,6 +485,7 @@ openssh-sftp-server
 openssl
 os-prober
 overlayroot
+parallel
 parted
 passwd
 patch
@@ -509,6 +514,7 @@ php5-sqlite
 php5-xdebug
 php5-xhprof
 php5-xmlrpc
+pigz
 plymouth
 plymouth-theme-ubuntu-text
 policykit-1

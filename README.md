@@ -5,27 +5,26 @@ trusty32-lamp-vm
 
 **Table of Contents**  *generated with [DocToc](http://doctoc.herokuapp.com/)*
 
-- [trusty32-lamp-vm](#user-content-trusty32-lamp-vm)
-  - [Goals](#user-content-goals)
-  - [Setup instructions](#user-content-setup-instructions)
-    - [Optional setup](#user-content-optional-setup)
-  - [Basebox Details](#user-content-basebox-details)
-    - [/etc management](#user-content-etc-management)
-    - [Permissions](#user-content-permissions)
-    - [Grub](#user-content-grub)
-    - ["Unable to mount shared folders" fixed](#user-content-unable-to-mount-shared-folders-fixed)
-    - [Apache configuration](#user-content-apache-configuration)
-  - [Package highlights](#user-content-package-highlights)
-  - [PHP Debugging with xhprof](#user-content-php-debugging-with-xhprof)
-  - [PHP Profiling with XHGui](#user-content-php-profiling-with-xhgui)
-  - [Fast database dumps and restores with MySQL Parallel](#user-content-fast-database-dumps-and-restores-with-MySQL-Parallel)
-  - [Email Configuration](#user-content-email-configuration)
-  - [Drush Alias Autoconfiguration](#drush-alias-autoconfiguration)
-  - [Verifying basebox integrity](#user-content-verifying-basebox-integrity)
-    - [Verifying the download when adding the box](#user-content-verifying-the-download-when-adding-the-box)
-    - [Verifying the box manually](#user-content-verifying-the-box-manually)
-    - [Validating my identity](#user-content-validating-my-identity)
-    - [Updating base boxes](#user-content-updating-base-boxes)
+- [Goals](#user-content-goals)
+- [Setup instructions](#user-content-setup-instructions)
+  - [Optional setup](#user-content-optional-setup)
+- [Basebox Details](#user-content-basebox-details)
+  - [/etc management](#user-content-etc-management)
+  - [Permissions](#user-content-permissions)
+  - [Grub](#user-content-grub)
+  - ["Unable to mount shared folders" fixed](#user-content-unable-to-mount-shared-folders-fixed)
+  - [Apache configuration](#user-content-apache-configuration)
+- [Package highlights](#user-content-package-highlights)
+- [PHP Debugging with xhprof](#user-content-php-debugging-with-xhprof)
+- [PHP Profiling with XHGui](#user-content-php-profiling-with-xhgui)
+- [Fast database dumps and restores with MySQL Parallel](#user-content-fast-database-dumps-and-restores-with-MySQL-Parallel)
+- [Email Configuration](#user-content-email-configuration)
+- [Drush Alias Autoconfiguration](#drush-alias-autoconfiguration)
+- [Verifying basebox integrity](#user-content-verifying-basebox-integrity)
+  - [Verifying the download when adding the box](#user-content-verifying-the-download-when-adding-the-box)
+  - [Verifying the box manually](#user-content-verifying-the-box-manually)
+  - [Validating my identity](#user-content-validating-my-identity)
+  - [Updating base boxes](#user-content-updating-base-boxes)
 
 There are a ton of Vagrant base boxes available for web developers. Or,
 Chef / Puppet configurations to take a basic OS install and configure it "just
@@ -149,21 +148,16 @@ Package highlights
 
 See [PACKAGES.txt](PACKAGES.txt) for the full list.
 
-PHP Debugging with xhprof
+PHP Debugging with xdebug
 -------------------------
 
-xhprof is installed and preconfigured to allow remote connections for
+xdebug is installed and preconfigured to allow remote connections for
 debugging. See your editor or IDE for instructions on how to start a
-debugging session.
+debugging session. For PHPStorm, the [bookmarklet generator](https://www.jetbrains.com/phpstorm/marklets/)
+works well.
 
-It is likely that your project doesn't include the [XHGui code](https://github.com/perftools/xhgui)
-that is included to start profiling. When debugging, your IDE might show steps
-through this code as unmapped code.
-
-* Set a breakpoint within your project, and run to it.
-* Or, download XHGui to your machine and add it to the include path in your
-  project. Map the XHGui source directory to /opt/xhgui on the "remote"
-  machine. The exact configuration for this is IDE dependent.
+For CLI and Drush debugging, use the included `php-debug` script to start a
+shell with debugging enabled.
 
 PHP Profiling with XHGui
 ------------------------
@@ -175,6 +169,17 @@ setup instructions.
 **To start profiling** simply append ```?xhprof=on``` to a request. This will
 set a cookie that will keep profiling enabled for the next hour, regardless of
 the query parameters. Browse to /xhgui to view your profiles.
+
+It is likely that your project doesn't include the [XHGui code](https://github.com/perftools/xhgui)
+that is included to start profiling. When debugging, your IDE might show steps
+through this code as unmapped code.
+
+Options include:
+
+* Set a breakpoint within your project, and run to it.
+* Or, download XHGui to your machine and add it to the include path in your
+  project. Map the XHGui source directory to /opt/xhgui on the "remote"
+  machine. The exact configuration for this is IDE dependent.
 
 Fast database dumps and restores with MySQL Parallel
 ----------------------------------------------------
