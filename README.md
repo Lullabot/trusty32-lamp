@@ -142,6 +142,7 @@ Package highlights
   * PHP 5.5 (using mod_php)
   * memcached 1.4
   * redis 2.8
+* zsh and oh-my-zsh
 * vim-full instead of vim-tiny
 * Drush, installed from git into /opt
 * xhgui and xdebug

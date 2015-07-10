@@ -21,6 +21,8 @@ exec { "clean apt-cache":
 user { 'vagrant':
   gid => 'www-data',
   groups => ['vagrant', 'adm'],
+  shell  => "/bin/zsh",
+  require => Package['zsh'],
 }
 
 file { 'php-debug':
@@ -74,6 +76,22 @@ vcsrepo { '/opt/xhgui':
   ensure => 'present',
   provider => git,
   source => 'https://github.com/perftools/xhgui.git',
+}
+
+vcsrepo { '/home/vagrant/.oh-my-zsh':
+  ensure => 'present',
+  provider => git,
+  source => 'https://github.com/robbyrussell/oh-my-zsh.git',
+  revision => 'master',
+  owner => 'vagrant',
+}
+
+file { 'zshrc':
+  path => '/home/vagrant/.zshrc',
+  ensure => 'present',
+  source => '/home/vagrant/.oh-my-zsh/templates/zshrc.zsh-template',
+  owner => 'vagrant',
+  require => Vcsrepo["/home/vagrant/.oh-my-zsh"],
 }
 
 package { 'apache2':
@@ -263,6 +281,9 @@ package { 'wget':
   ensure => 'latest',
 }
 package { 'zerofree':
+  ensure => 'latest',
+}
+package { 'zsh':
   ensure => 'latest',
 }
 
