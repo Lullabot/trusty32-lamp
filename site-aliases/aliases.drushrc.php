@@ -25,13 +25,18 @@ $contents = file_get_contents($vagrantfile);
 $matches = array();
 preg_match('!HOSTNAME *= *"([^"]*)".*!', $contents, $matches);
 
+$private_key = $vagrant_directory . "/.vagrant/machines/default/virtualbox/private_key";
+if (!file_exists($private_key)) {
+  $private_key = $vagrant_directory . "/.vagrant/machines/default/vmware_fusion/private_key";
+}
+
 if (isset($matches[1])) {
   $fqdn = $matches[1];
   $aliases[$fqdn] = array(
     'uri' => $fqdn,
     'remote-host' => $fqdn,
     'remote-user' => 'vagrant',
-    'ssh-options' => "-i " . $vagrant_directory . "/.vagrant/machines/default/virtualbox/private_key",
+    'ssh-options' => "-i " . $private_key,
     'root' => '/var/www/docroot',
   );
 }
