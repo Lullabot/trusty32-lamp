@@ -2,16 +2,19 @@
 
 /**
  * Need to include the following via ~/.drushrc.php. This walks up the tree
- * looking for alias files.
+ * looking for alias files in a site-aliases directory.
  */
 // $dir = getcwd();
-// while (!in_array($dir, $options['alias-path'])) {
-//   $options['alias-path'][] = $dir;
+// while ($dir != '/') {
+//   if (in_array('site-aliases', scandir($dir))) {
+//     $options['alias-path'][] = $dir . '/site-aliases';
+//     break;
+//   }
 //   $dir = dirname($dir);
 // }
 
 // Generates an alias for the current project from HOSTNAME in the Vagrantfile.
-$vagrant_directory = dirname(__FILE__);
+$vagrant_directory = dirname(dirname(__FILE__));
 $vagrantfile = $vagrant_directory . '/Vagrantfile';
 
 if (!file_exists($vagrantfile)) {
@@ -28,7 +31,7 @@ if (isset($matches[1])) {
     'uri' => $fqdn,
     'remote-host' => $fqdn,
     'remote-user' => 'vagrant',
-    'ssh-options' => '-i ~/.vagrant.d/insecure_private_key',
+    'ssh-options' => "-i " . $vagrant_directory . "/.vagrant/machines/default/virtualbox/private_key",
     'root' => '/var/www/docroot',
   );
 }
