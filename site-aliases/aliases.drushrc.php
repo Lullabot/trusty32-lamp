@@ -25,9 +25,14 @@ $contents = file_get_contents($vagrantfile);
 $matches = array();
 preg_match('!HOSTNAME *= *"([^"]*)".*!', $contents, $matches);
 
-$private_key = $vagrant_directory . "/.vagrant/machines/default/virtualbox/private_key";
-if (!file_exists($private_key)) {
-  $private_key = $vagrant_directory . "/.vagrant/machines/default/vmware_fusion/private_key";
+$private_key = "~/.vagrant.d/insecure_private_key";
+$providers = array('virtualbox', 'vmware_fusion', 'vmware_workstation');
+foreach ($providers as $provider) {
+  $unique_key = $vagrant_directory . "/.vagrant/machines/default/$provider/private_key";
+  if (file_exists($unique_key)) {
+    $private_key = $unique_key;
+    break;
+  }
 }
 
 if (isset($matches[1])) {
