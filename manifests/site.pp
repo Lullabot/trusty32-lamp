@@ -4,6 +4,11 @@ class { 'apt':
   fancy_progress       => false
 }
 
+class { 'composer':
+  command_name => 'composer',
+  target_dir   => '/usr/local/bin'
+}
+
 exec { "apt-get dist-upgrade":
   require => Class['apt'],
   command => "/usr/bin/apt-get -y --auto-remove dist-upgrade",
@@ -54,6 +59,25 @@ vcsrepo { '/opt/drush':
   provider => git,
   source => 'https://github.com/drush-ops/drush.git',
   revision => '6.6.0',
+}
+
+# Drush 8 installation - the repo, the symlink, and running composer install
+vcsrepo { '/opt/drush8':
+  ensure => 'present',
+  provider => git,
+  source => 'https://github.com/drush-ops/drush.git',
+  revision => '8.0.0-beta14',
+}
+
+file { 'drush8':
+  path => '/usr/local/bin/drush8',
+  ensure => 'link',
+  target => '/opt/drush8/drush',
+}
+
+exec { "composer drush8":
+  command => "/usr/local/bin/composer install --working-dir=/opt/drush8",
+  environment => ["HOME=/home/vagrant"], 
 }
 
 # ensure => 'latest' is currently broken, so we use explicit revisions.

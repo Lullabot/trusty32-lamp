@@ -1,0 +1,48 @@
+{
+  "name": "willdurand-composer",
+  "version": "1.1.1",
+  "author": "William Durand",
+  "license": "MIT",
+  "summary": "This module installs Composer, a dependency manager for PHP.",
+  "source": "https://github.com/willdurand/puppet-composer",
+  "project_page": "https://github.com/willdurand/puppet-composer",
+  "issues_url": "https://github.com/willdurand/puppet-composer/issues",
+  "tags": [
+    "php",
+    "composer"
+  ],
+  "dependencies": [
+    {
+      "name": "maestrodev/wget",
+      "version_requirement": ">=1.2.0"
+    }
+  ],
+  "operatingsystem_support": [
+    {
+      "operatingsystem": "Ubuntu",
+      "operatingsystemrelease": [
+        "12.04",
+        "14.04"
+      ]
+    },
+    {
+      "operatingsystem": "CentOS",
+      "operatingsystemrelease": [
+        "6",
+        "7"
+      ]
+    }
+  ],
+  "types": [
+
+  ],
+  "checksums": {
+    "LICENSE": "8e55fce2ff4cd1331f7c6bc602fe7370",
+    "README.md": "bd086566f845772c926144251c55c20d",
+    "Rakefile": "a1a87b266213b03b33f5e006d4df7925",
+    "manifests/init.pp": "55b84512cbf79fdb3a418d5cf5f422a1",
+    "manifests/params.pp": "8f17a164d1148bc6000f565ec8bbdd04",
+    "spec/classes/composer_spec.rb": "a55830b75a23a61dc55409ab59bc888d",
+    "spec/spec_helper.rb": "0db89c9a486df193c0e40095422e19dc"
+  }
+}
