@@ -158,8 +158,10 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # Every Vagrant virtual environment requires a box to build off of.
   if ARCH == 32
     config.vm.box = "trusty32-lamp"
+    config.vm.box_url = "https://www.dropbox.com/s/9f33zk4zl6tyiw1/trusty32-lamp.json?dl=1"
   elsif ARCH == 64
     config.vm.box = "trusty64-lamp"
+    config.vm.box_url = "https://www.dropbox.com/s/nxow1svob178yin/trusty64-lamp.json?dl=1"
   end
 
   # The url from where the 'config.vm.box' box will be fetched if it
