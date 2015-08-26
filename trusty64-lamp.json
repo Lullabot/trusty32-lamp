@@ -1,0 +1,19 @@
+{
+  "name": "trusty64-lamp",
+  "description": "This box contains Ubuntu 14.04 with LAMP.",
+  "versions": [{
+    "version": "0.1.0",
+    "providers": [{
+      "name": "virtualbox",
+      "url": "https://www.dropbox.com/s/vu0lz1kl0kafx8u/trusty64-lamp.box?dl=1",
+      "checksum_type": "sha1",
+      "checksum": "76ee38e2a4b8e830440a379bc291b55fb19a0b98"
+    },
+    {
+      "name": "vmware_fusion",
+      "url": "https://www.dropbox.com/s/jqz8tstjh739wra/trusty64-lamp-vmware.box?dl=1",
+      "checksum_type": "sha1",
+      "checksum": "32e788643545af3a72405b60f707b649129cca54"
+    }]
+  }]
+}
