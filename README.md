@@ -66,13 +66,6 @@ PRIVATE NETWORK. Use this to easily jump around in the file.
 
 A listing of all base boxes and signatures is [on Dropbox](https://www.dropbox.com/sh/oy1av6uhod3yeto/AADdDksbAXtEmC6Aj4q-QGEva?dl=0).
 
-1. Add this base box to Vagrant with:
-   * ```vagrant box add --name trusty32-lamp
-  https://www.dropbox.com/sh/oy1av6uhod3yeto/AADzTDkFKJ2qXflAvJh57FKla/trusty32-lamp.box?dl=1```.
-   * Optionally add the 64-bit base box with ```vagrant box add --name trusty64-lamp
-  https://www.dropbox.com/s/vu0lz1kl0kafx8u/trusty64-lamp.box?dl=1```.
-   * Optionally add the 64-bit VMWare base box with `vagrant box add --provider vmware_fusion --name trusty64-lamp`
-   * Or optionally [verify your download](#verifying-basebox-integrity).
 1. Clone ```this repo``` to get the base Vagrantfile.
 1. Decide on a hostname for your VM.
    * Set a HOSTNAME for your VM.
@@ -91,7 +84,8 @@ A listing of all base boxes and signatures is [on Dropbox](https://www.dropbox.c
    * Most users will want to use NFS or rsync.
    * For larger codebases, a significant performance improvement can be seen by
    switching to rsync over NFS as supported with Vagrant 1.5.
-1. Boot the VM with ```vagrant up [--provider vmware_fusion]```.
+1. Boot the VM with ```vagrant up [--provider vmware_fusion]```. The base box
+   will be automatically downloaded.
 1. Browse to the hostname you choose to see phpinfo or the code you have synced.
 
 ### Optional setup
@@ -100,6 +94,14 @@ Configure RESOURCES to change the defaults of a single CPU core and
 512MB of memory. Change ARCH under RESOURCES to 64 to run a 64-bit box instead.
 This will increase the base memory requirements for the box to boot from around
 180MB to 250MB.
+
+You can also [verify your download](#verifying-basebox-integrity). GPG and SHA1
+signatures are available in the
+[Dropbox folder](https://www.dropbox.com/sh/oy1av6uhod3yeto/Pxuqc9NSFS).
+Vagrant will automatically verify the sha1 signature in the base box JSON file.
+Unfortunately vagrant won't preserve the raw box after importing it, but for
+most uses simply verifying the PGP signature on the sha1 hashes and JSON files
+should be enough.
 
 Basebox Details
 ---------------
@@ -223,9 +225,6 @@ of aliases.drushrc.php.
 
 Verifying basebox integrity
 ---------------------------
-
-GPG and SHA1 signatures are available in the
-[Dropbox folder](https://www.dropbox.com/sh/oy1av6uhod3yeto/Pxuqc9NSFS).
 
 ### Verifying the download when adding the box
 
