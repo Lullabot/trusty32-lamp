@@ -214,8 +214,11 @@ file to be loaded by Drush:
 ```php
 <?php
 $dir = getcwd();
-while (!in_array($dir, $options['alias-path'])) {
-  $options['alias-path'][] = $dir;
+while ($dir != '/') {
+  if (in_array('site-aliases', scandir($dir))) {
+    $options['alias-path'][] = $dir . '/site-aliases';
+    break;
+  }
   $dir = dirname($dir);
 }
 ```
