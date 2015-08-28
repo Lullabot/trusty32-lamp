@@ -137,6 +137,10 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
       # This fixes DNS lag issues with Virtualbox.
       vb.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
+
+       # VirtualBox 5 supports paravirtualization, and defaults this setting to
+       # 'legacy' which isn't enabling KVM.
+       vb.customize ['modifyvm', :id, '--paravirtprovider', 'default']
   end
 
   config.vm.provider "vmware_fusion" do |v|
