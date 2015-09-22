@@ -46,6 +46,7 @@ Goals
 
 * < 5 minute setup time for new users.
 * Everything you need for most PHP applications.
+* XDebug built in for PHP debugging.
 * [xhgui](https://github.com/perftools/xhgui) built in and configured for easy
   opt-in profiling.
 * [Linux MySQL Manager](https://github.com/Lullabot/lmm) for snapshotting databases.
@@ -62,28 +63,28 @@ following the instructions below, please double-check that you are using the
 latest versions of VirtualBox and Vagrant.
 
 Each modification in the Vagrantfile is marked with an all-caps header such as
-PRIVATE NETWORK. Use this to easily jump around in the file.
+`PRIVATE NETWORK`. Use this to easily jump around in the file.
 
 A listing of all base boxes and signatures is [on Dropbox](https://www.dropbox.com/sh/oy1av6uhod3yeto/AADdDksbAXtEmC6Aj4q-QGEva?dl=0).
 
-1. Clone ```this repo``` to get the base Vagrantfile.
+1. Clone ```https://github.com/Lullabot/trusty32-lamp.git``` to get the base Vagrantfile.
 1. Decide on a hostname for your VM.
-   * Set a HOSTNAME for your VM.
+   * Set a `HOSTNAME` for your VM.
      * Your hostname **must end in .local** for automatic DNS to work.
      * If your system does not support ZeroConf / Bonjour (most do)
        * Windows users can install
-        [Bonjour for Windows](http://support.apple.com/kb/dl999)
+         [Bonjour for Windows](http://support.apple.com/kb/dl999)
        * Linux users can install ```avahi``` if it's not installed.
        * Or, manually add a line to ```/etc/hosts``` or
-        ```C:\Windows\System32\drivers\etc\hosts``` with your desired hostname
-        and IP address.
-1. Set up FILE SYNCING by setting SYNC_TYPE and SYNC_DIRECTORY.
-   * By default Virtualbox syncing and a "www" directory are synced.
+         ```C:\Windows\System32\drivers\etc\hosts``` with your desired hostname
+         and IP address.
+1. Set up `FILE SYNCING` by setting `SYNC_TYPE` and `SYNC_DIRECTORY`.
+   * By default Virtualbox syncing and a `www1 directory are synced.
    * The only assumption is that whatever is mounted into ```/var/www``` has a
-   docroot directory.
+     docroot directory.
    * Most users will want to use NFS or rsync.
    * For larger codebases, a significant performance improvement can be seen by
-   switching to rsync over NFS as supported with Vagrant 1.5.
+     switching to rsync over NFS as supported with Vagrant 1.5.
 1. Boot the VM with ```vagrant up [--provider vmware_fusion]```. The base box
    will be automatically downloaded.
 1. Browse to the hostname you choose to see phpinfo or the code you have synced.
