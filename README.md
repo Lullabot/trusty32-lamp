@@ -79,7 +79,7 @@ A listing of all base boxes and signatures is [on Dropbox](https://www.dropbox.c
          ```C:\Windows\System32\drivers\etc\hosts``` with your desired hostname
          and IP address.
 1. Set up `FILE SYNCING` by setting `SYNC_TYPE` and `SYNC_DIRECTORY`.
-   * By default Virtualbox syncing and a `www1 directory are synced.
+   * By default Virtualbox syncing and a `www` directory are synced.
    * The only assumption is that whatever is mounted into ```/var/www``` has a
      docroot directory.
    * Most users will want to use NFS or rsync.
