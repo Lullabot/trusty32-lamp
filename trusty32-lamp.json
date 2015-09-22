@@ -2,12 +2,12 @@
   "name": "trusty32-lamp",
   "description": "This box contains Ubuntu 14.04 with LAMP.",
   "versions": [{
-    "version": "0.1.0",
+    "version": "1.1.0",
     "providers": [{
       "name": "virtualbox",
       "url": "https://www.dropbox.com/sh/oy1av6uhod3yeto/AADzTDkFKJ2qXflAvJh57FKla/trusty32-lamp.box?dl=1",
       "checksum_type": "sha1",
-      "checksum": "f3b0cd6b26c605882f1a95818b13e2559e72bc92"
+      "checksum": "df8798adce86467e3c5f9ed0191bba1e6d974624"
     }]
   }]
 }
