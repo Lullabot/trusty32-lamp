@@ -164,8 +164,9 @@ $ mysql -u root -p
 ```
 
 To connect from an outside tool like Sequel Pro, use your tool's SSH tunnel
-configuration. For SSH, use `vagrant` as the username and password, or use the
-SSH key placed in your project's `.vagrant` folder.
+configuration. For SSH, use the hostname you set in the Vagrantfile and
+`vagrant` as the username and password. You can also use the SSH key placed in
+your project's `.vagrant` folder.
 
 ![Sequel Pro Configuration](img/sequel-pro.png)
 
