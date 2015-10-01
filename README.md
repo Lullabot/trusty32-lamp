@@ -15,7 +15,7 @@ trusty32-lamp-vm
   - ["Unable to mount shared folders" fixed](#user-content-unable-to-mount-shared-folders-fixed)
   - [Apache configuration](#user-content-apache-configuration)
 - [Package highlights](#user-content-package-highlights)
-- [PHP Debugging with xhprof](#user-content-php-debugging-with-xhprof)
+- [PHP Debugging with xdebug](#user-content-php-debugging-with-xdebug)
 - [PHP Profiling with XHGui](#user-content-php-profiling-with-xhgui)
 - [Fast database dumps and restores with MySQL Parallel](#user-content-fast-database-dumps-and-restores-with-MySQL-Parallel)
 - [Email Configuration](#user-content-email-configuration)
@@ -151,6 +151,24 @@ Package highlights
 * xhgui and xdebug
 
 See [PACKAGES.txt](PACKAGES.txt) for the full list.
+
+MariaDB (MySQL) Configuration
+-----------------------------
+
+Maria is configured to only listen on localhost, with a passwordless root
+account. To connect to the database:
+
+```
+$ vagrant ssh # If you aren't already ssh'ed in.
+$ mysql -u root -p
+```
+
+To connect from an outside tool like Sequel Pro, use your tool's SSH tunnel
+configuration. For SSH, use the hostname you set in the Vagrantfile and
+`vagrant` as the username and password. You can also use the SSH key placed in
+your project's `.vagrant` folder.
+
+![Sequel Pro Configuration](img/sequel-pro.png)
 
 PHP Debugging with xdebug
 -------------------------
