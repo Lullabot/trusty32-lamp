@@ -152,6 +152,23 @@ Package highlights
 
 See [PACKAGES.txt](PACKAGES.txt) for the full list.
 
+MariaDB (MySQL) Configuration
+-----------------------------
+
+Maria is configured to only listen on localhost, with a passwordless root
+account. To connect to the database:
+
+```
+$ vagrant ssh # If you aren't already ssh'ed in.
+$ mysql -u root -p
+```
+
+To connect from an outside tool like Sequel Pro, use your tool's SSH tunnel
+configuration. For SSH, use `vagrant` as the username and password, or use the
+SSH key placed in your project's `.vagrant` folder.
+
+![Sequel Pro Configuration](img/sequel-pro.png)
+
 PHP Debugging with xdebug
 -------------------------
 
