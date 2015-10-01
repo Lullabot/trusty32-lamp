@@ -15,7 +15,7 @@ trusty32-lamp-vm
   - ["Unable to mount shared folders" fixed](#user-content-unable-to-mount-shared-folders-fixed)
   - [Apache configuration](#user-content-apache-configuration)
 - [Package highlights](#user-content-package-highlights)
-- [PHP Debugging with xhprof](#user-content-php-debugging-with-xhprof)
+- [PHP Debugging with xdebug](#user-content-php-debugging-with-xdebug)
 - [PHP Profiling with XHGui](#user-content-php-profiling-with-xhgui)
 - [Fast database dumps and restores with MySQL Parallel](#user-content-fast-database-dumps-and-restores-with-MySQL-Parallel)
 - [Email Configuration](#user-content-email-configuration)
