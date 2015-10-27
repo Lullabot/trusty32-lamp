@@ -1,30 +1,39 @@
 trusty32-lamp-vm
 ==============
 
-[Setup instructions for the impatient](#setup-instructions).
+[Instructions if you've used Vagrant before](#box-setup). If
+you are new to Vagrant, read on.
 
 **Table of Contents**  *generated with [DocToc](http://doctoc.herokuapp.com/)*
 
-- [Goals](#user-content-goals)
-- [Setup instructions](#user-content-setup-instructions)
-  - [Optional setup](#user-content-optional-setup)
-- [Basebox Details](#user-content-basebox-details)
-  - [/etc management](#user-content-etc-management)
-  - [Permissions](#user-content-permissions)
-  - [Grub](#user-content-grub)
-  - ["Unable to mount shared folders" fixed](#user-content-unable-to-mount-shared-folders-fixed)
-  - [Apache configuration](#user-content-apache-configuration)
-- [Package highlights](#user-content-package-highlights)
-- [PHP Debugging with xdebug](#user-content-php-debugging-with-xdebug)
-- [PHP Profiling with XHGui](#user-content-php-profiling-with-xhgui)
-- [Fast database dumps and restores with MySQL Parallel](#user-content-fast-database-dumps-and-restores-with-MySQL-Parallel)
-- [Email Configuration](#user-content-email-configuration)
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+
+
+- [Goals](#goals)
+- [Box Requirements](#box-requirements)
+- [Box Setup](#box-setup)
+  - [Optional setup](#optional-setup)
+- [Basebox Details](#basebox-details)
+  - [/etc management](#etc-management)
+  - [Permissions](#permissions)
+  - [Grub](#grub)
+  - ["Unable to mount shared folders" fixed](#unable-to-mount-shared-folders-fixed)
+  - [Apache configuration](#apache-configuration)
+- [Package highlights](#package-highlights)
+- [MariaDB (MySQL) Configuration](#mariadb-mysql-configuration)
+- [PHP Debugging with xdebug](#php-debugging-with-xdebug)
+- [PHP Profiling with XHGui](#php-profiling-with-xhgui)
+- [Fast database dumps and restores with MySQL Parallel](#fast-database-dumps-and-restores-with-mysql-parallel)
+- [Email Configuration](#email-configuration)
 - [Drush Alias Autoconfiguration](#drush-alias-autoconfiguration)
-- [Verifying basebox integrity](#user-content-verifying-basebox-integrity)
-  - [Verifying the download when adding the box](#user-content-verifying-the-download-when-adding-the-box)
-  - [Verifying the box manually](#user-content-verifying-the-box-manually)
-  - [Validating my identity](#user-content-validating-my-identity)
-- [Updating base boxes](#updating-baseboxes)
+- [Verifying basebox integrity](#verifying-basebox-integrity)
+  - [Verifying the box manually](#verifying-the-box-manually)
+  - [Validating my identity](#validating-my-identity)
+- [Updating baseboxes](#updating-baseboxes)
+- [Converting a VirtualBox box to VMWare](#converting-a-virtualbox-box-to-vmware)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 There are a ton of Vagrant base boxes available for web developers. Or,
 Chef / Puppet configurations to take a basic OS install and configure it "just
@@ -54,8 +63,7 @@ Goals
   of the way for everything else).
 * No provisioning whatsoever; treat boxes as "fork and forget" for new projects.
 
-Setup instructions
-------------------
+## Box Requirements
 
 If this is your first time you are using Vagrant, you will need:
 
@@ -69,18 +77,26 @@ If this is your first time you are using Vagrant, you will need:
 * (optionally) The
   [Vagrant vbguest](https://github.com/dotless-de/vagrant-vbguest) plugin, to
   automatically update guest additions.
+  ```$ vagrant plugin install vbguest```
 
 This Vagrant box will always support the latest versions of VirtualBox and
 Vagrant, which are both updated regularly. If you encounter any problems while
 following the instructions below, please double-check that you are using the
 latest versions of VirtualBox and Vagrant.
 
-Each modification in the Vagrantfile is marked with an all-caps header such as
-`PRIVATE NETWORK`. Use this to easily jump around in the file.
+Box Setup
+---------
 
-1. Clone ```https://github.com/Lullabot/trusty32-lamp.git``` to get the base Vagrantfile.
+1. Clone ```https://github.com/Lullabot/trusty32-lamp.git``` to get the base
+   Vagrantfile. Name your clone after your project, such as `~/drupal8`. Create
+   new clones of this repository for each different project you work on.
+   ```$ git clone https://github.com/Lullabot/trusty32-lamp drupal8```
+1. Open up the `Vagrantfile` in your text editor of choice.
+   * Each modification in the Vagrantfile is marked with an all-caps header such
+     as `PRIVATE NETWORK`. Use this to easily jump around in the file with
+     search.
 1. Decide on a hostname for your VM.
-   * Set a `HOSTNAME` for your VM.
+   * Set a `HOSTNAME` for your VM, such as `drupal8.local`.
      * Your hostname **must end in .local** for automatic DNS to work.
      * If your system does not support ZeroConf / Bonjour (most do)
        * Windows users can install
@@ -95,7 +111,8 @@ Each modification in the Vagrantfile is marked with an all-caps header such as
      docroot directory.
    * Most users will want to use NFS or rsync.
    * For larger codebases, a significant performance improvement can be seen by
-     switching to rsync over NFS as supported with Vagrant 1.5.
+     switching to rsync instead of NFS. Windows users might want to try
+     [smb mouting](https://docs.vagrantup.com/v2/synced-folders/smb.html).
 1. Boot the VM with ```vagrant up [--provider vmware_fusion]```. The base box
    will be automatically downloaded.
 1. Browse to the hostname you choose to see phpinfo or the code you have synced.
