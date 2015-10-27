@@ -57,6 +57,19 @@ Goals
 Setup instructions
 ------------------
 
+If this is your first time you are using Vagrant, you will need:
+
+* Git, to be able to clone this repository. Mac users should update git using
+  [Homebrew](http://brew.sh), but it's not required. Windows users can use the
+  excellent [Babun](http://babun.github.io) or get Git directly from
+  [git-scm.com](https://git-scm.com).
+* [VirtualBox](https://www.virtualbox.org), used to run virtual machines.
+* [Vagrant](https://www.vagrantup.com), the CLI tool to manage virtual
+  machines easily.
+* (optionally) The
+  [Vagrant vbguest](https://github.com/dotless-de/vagrant-vbguest) plugin, to
+  automatically update guest additions.
+
 This Vagrant box will always support the latest versions of VirtualBox and
 Vagrant, which are both updated regularly. If you encounter any problems while
 following the instructions below, please double-check that you are using the
