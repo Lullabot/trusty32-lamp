@@ -14,6 +14,7 @@ you are new to Vagrant, read on.
 - [Box Requirements](#box-requirements)
 - [Box Setup](#box-setup)
   - [Optional setup](#optional-setup)
+  - [Drupal Installation](#drupal-installation)
 - [Basebox Details](#basebox-details)
   - [/etc management](#etc-management)
   - [Permissions](#permissions)
@@ -133,6 +134,33 @@ Vagrant will automatically verify the sha1 signature in the base box JSON file.
 Unfortunately vagrant won't preserve the raw box after importing it, but for
 most uses simply verifying the PGP signature on the sha1 hashes and JSON files
 should be enough.
+
+### Drupal Installation
+
+These instructions will be fairly similar for any other PHP app checked out
+from git. Most other systems will require a `composer install`, which can be
+run from inside the VM or on the host machine.
+
+1. Remove the default docroot directory, since we are going to replace it with a
+   Drupal checkout:
+
+    ```
+    $ cd www
+    $ rm -rfv docroot
+    $ cd ..
+    ```
+
+2. Go to drupal.org to clone Drupal 8 to get directions to checkout Drupal. It
+   needs to be cloned into the `www/docroot` directory within your project
+   directory.
+
+    ```
+    $ git clone http://git.drupal.org/project/drupal.git docroot
+    ```
+
+Browse to http://drupal8.local and install Drupal. Use root with a blank
+password as the MySQL database credentials. The installer will automatically
+create a database for you.
 
 Basebox Details
 ---------------
