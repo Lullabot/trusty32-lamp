@@ -71,7 +71,7 @@ vcsrepo { '/opt/drush8':
   ensure => 'present',
   provider => git,
   source => 'https://github.com/drush-ops/drush.git',
-  revision => '8.0.0-beta14',
+  revision => '8.0.0-rc2',
 }
 
 file { 'drush8':
