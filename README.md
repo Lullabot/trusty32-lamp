@@ -78,8 +78,6 @@ latest versions of VirtualBox and Vagrant.
 Each modification in the Vagrantfile is marked with an all-caps header such as
 `PRIVATE NETWORK`. Use this to easily jump around in the file.
 
-A listing of all base boxes and signatures is [on Dropbox](https://www.dropbox.com/sh/oy1av6uhod3yeto/AADdDksbAXtEmC6Aj4q-QGEva?dl=0).
-
 1. Clone ```https://github.com/Lullabot/trusty32-lamp.git``` to get the base Vagrantfile.
 1. Decide on a hostname for your VM.
    * Set a `HOSTNAME` for your VM.
