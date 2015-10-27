@@ -58,7 +58,12 @@ vcsrepo { '/opt/drush':
   ensure => 'present',
   provider => git,
   source => 'https://github.com/drush-ops/drush.git',
-  revision => '6.6.0',
+  revision => '7.1.0',
+}
+
+exec { "composer drush7":
+  command => "/usr/local/bin/composer install --working-dir=/opt/drush",
+  environment => ["HOME=/home/vagrant"],
 }
 
 # Drush 8 installation - the repo, the symlink, and running composer install
