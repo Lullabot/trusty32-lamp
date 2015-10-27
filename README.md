@@ -76,8 +76,9 @@ If this is your first time you are using Vagrant, you will need:
   machines easily.
 * (optionally) The
   [Vagrant vbguest](https://github.com/dotless-de/vagrant-vbguest) plugin, to
-  automatically update guest additions.
-  ```$ vagrant plugin install vbguest```
+  automatically update guest additions:
+
+    ```$ vagrant plugin install vbguest```
 
 This Vagrant box will always support the latest versions of VirtualBox and
 Vagrant, which are both updated regularly. If you encounter any problems while
@@ -90,7 +91,8 @@ Box Setup
 1. Clone ```https://github.com/Lullabot/trusty32-lamp.git``` to get the base
    Vagrantfile. Name your clone after your project, such as `~/drupal8`. Create
    new clones of this repository for each different project you work on.
-   ```$ git clone https://github.com/Lullabot/trusty32-lamp drupal8```
+
+    ```$ git clone https://github.com/Lullabot/trusty32-lamp drupal8```
 1. Open up the `Vagrantfile` in your text editor of choice.
    * Each modification in the Vagrantfile is marked with an all-caps header such
      as `PRIVATE NETWORK`. Use this to easily jump around in the file with
