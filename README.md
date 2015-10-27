@@ -121,10 +121,10 @@ Box Setup
 
 ### Optional setup
 
-Configure RESOURCES to change the defaults of a single CPU core and
-512MB of memory. Change ARCH under RESOURCES to 64 to run a 64-bit box instead.
-This will increase the base memory requirements for the box to boot from around
-180MB to 250MB.
+Configure `RESOURCES` to change the defaults of a single CPU core and
+512MB of memory. Change `ARCH` under `RESOURCES` to 64 to run a 64-bit box
+instead. This will increase the base memory requirements for the box to boot
+from around 180MB to 250MB.
 
 You can also [verify your download](#verifying-basebox-integrity). GPG and SHA1
 signatures are available in the
