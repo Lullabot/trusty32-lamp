@@ -91,7 +91,7 @@ vcsrepo { '/opt/lmm':
   ensure => 'present',
   provider => git,
   source => 'https://github.com/Lullabot/lmm.git',
-  revision => '742a5817728ccefa1981e5235de9394962e11d74',
+  revision => '6f7e2df9af3ccc0eba16dab5767ae65b4d9e8c6d',
 }
 
 vcsrepo { '/opt/mysql-parallel':
