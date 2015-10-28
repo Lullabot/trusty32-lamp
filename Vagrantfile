@@ -140,7 +140,12 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
        # VirtualBox 5 supports paravirtualization, and defaults this setting to
        # 'legacy' which isn't enabling KVM.
-       vb.customize ['modifyvm', :id, '--paravirtprovider', 'default']
+       begin
+         if VagrantPlugins::ProviderVirtualBox::Driver::Meta.new.version >= "5.0.0"
+           vb.customize ['modifyvm', :id, '--paravirtprovider', 'default']
+         end
+         rescue Vagrant::Errors::VirtualBoxNotDetected
+       end
   end
 
   config.vm.provider "vmware_desktop" do |v|
