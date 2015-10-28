@@ -143,16 +143,10 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
        vb.customize ['modifyvm', :id, '--paravirtprovider', 'default']
   end
 
-  config.vm.provider "vmware_fusion" do |v|
+  config.vm.provider "vmware_desktop" do |v|
       v.vmx["memsize"] = MEMORY
       v.vmx["numvcpus"] = CPUS
       v.vmx["tools.synctime"] = TRUE
-  end
-
-  # Untested as I am not using VMWare Workstation.
-  config.vm.provider "vmware_workstation" do |v|
-      v.vmx["memsize"] = MEMORY
-      v.vmx["numvcpus"] = CPUS
   end
 
   # All Vagrant configuration is done here. The most common configuration
