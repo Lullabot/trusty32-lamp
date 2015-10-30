@@ -227,6 +227,10 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       puppet.manifest_file = "site.pp"
       puppet.options = "--hiera_config /vagrant/hiera.yaml"
     end
+
+    config.vm.provision "shell",
+      path: "cleanup.sh",
+      run: "always"
   end
 
   # Enable provisioning with chef solo, specifying a cookbooks path, roles
