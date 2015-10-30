@@ -321,3 +321,12 @@ package { 'zsh':
 package { 'open-vm-tools':
   ensure => 'purged',
 }
+
+# We don't need juju for vagrant boxes
+package { 'juju-core':
+  ensure => 'purged',
+}
+
+package {'libicu52':
+  ensure => 'purged',
+}
