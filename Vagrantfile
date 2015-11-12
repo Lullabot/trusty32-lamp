@@ -38,7 +38,8 @@ SYNC_DIRECTORY = "www"
 # RESOURCES
 
 # The architecture (32 or 64 bit) of the virtual machine. This changes the
-# base box that is used.
+# base box that is used. If you want to change the arch on an existing machine,
+# you should destroy the machine first.
 ARCH = 32
 
 # The number of CPU cores to expose to the virtual machine.
