@@ -126,6 +126,10 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       # Don't boot with headless mode
       # vb.gui = true
 
+      # Use linked clones in Virtualbox. This is currently opt-in and not
+      # supported in vanilla VMWare Fusion, so we only set this for VirtualBox.
+      vb.linked_clone = true
+
       # RESOURCE SETTINGS
       vb.customize ["modifyvm", :id, "--memory", MEMORY]
 
