@@ -6,7 +6,7 @@ REMOTE=$1
 if [[ -z "$REMOTE" ]]
 then
   echo "A remote host to connect to for debugging must be provided."
-  echo "Example: drush-debug.sh example.lan"
+  echo "Example: php-debug example.lan"
   exit 1
 fi
 

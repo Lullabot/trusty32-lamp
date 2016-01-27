@@ -237,7 +237,18 @@ debugging session. For PHPStorm, the [bookmarklet generator](https://www.jetbrai
 works well.
 
 For CLI and Drush debugging, use the included `php-debug` script to start a
-shell with debugging enabled.
+shell with debugging enabled. First grab the host name or IP of your local
+machine (for example run `hostname -f`).  Next SSH into your Vagrant box and
+run:
+
+```
+$ php-debug <hostname of local machine>
+```
+
+Next ensure that your debugging client on your local machine is listening for
+connections (eg. in PHPStorm: Run > Start Listening for PHP Debug Connections).
+Finally run your CLI and Drush commands from the Vagrant box and xdebug should
+connect to PHPStorm and allow you to start stepping through.
 
 PHP Profiling with XHGui
 ------------------------
