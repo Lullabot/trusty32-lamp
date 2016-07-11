@@ -58,31 +58,22 @@ vcsrepo { '/opt/drush':
   ensure => 'present',
   provider => git,
   source => 'https://github.com/drush-ops/drush.git',
-  revision => '7.1.0',
+  revision => '8.1.2',
 }
 
-exec { "composer drush7":
+exec { "composer drush":
   command => "/usr/local/bin/composer install --working-dir=/opt/drush",
   environment => ["HOME=/home/vagrant"],
 }
 
-# Drush 8 installation - the repo, the symlink, and running composer install
-vcsrepo { '/opt/drush8':
-  ensure => 'present',
-  provider => git,
-  source => 'https://github.com/drush-ops/drush.git',
-  revision => '8.0.0-rc2',
+# Remove drush8
+file { '/opt/drush8':
+  ensure => 'absent',
 }
 
 file { 'drush8':
   path => '/usr/local/bin/drush8',
-  ensure => 'link',
-  target => '/opt/drush8/drush',
-}
-
-exec { "composer drush8":
-  command => "/usr/local/bin/composer install --working-dir=/opt/drush8",
-  environment => ["HOME=/home/vagrant"], 
+  ensure => 'absent',
 }
 
 # ensure => 'latest' is currently broken, so we use explicit revisions.
