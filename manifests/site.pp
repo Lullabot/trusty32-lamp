@@ -4,6 +4,10 @@ class { 'apt':
   fancy_progress       => false
 }
 
+apt::ppa {
+  'ppa:ondrej/php':
+}
+
 class { 'composer':
   command_name => 'composer',
   target_dir   => '/usr/local/bin'
@@ -69,6 +73,7 @@ exec { "composer drush":
 # Remove drush8
 file { '/opt/drush8':
   ensure => 'absent',
+  force => true,
 }
 
 file { 'drush8':
@@ -225,7 +230,7 @@ package { 'php5-mongo':
 package { 'php5-mysql':
   ensure => 'latest',
 }
-package { 'php5-oauth':
+package { 'php-oauth':
   ensure => 'latest',
 }
 package { 'php5-readline':
