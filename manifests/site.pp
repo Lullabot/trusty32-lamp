@@ -8,6 +8,10 @@ apt::ppa {
   'ppa:ondrej/php':
 }
 
+apt::ppa {
+  'ppa:ondrej/apache2':
+}
+
 class { 'composer':
   command_name => 'composer',
   target_dir   => '/usr/local/bin'
@@ -43,13 +47,13 @@ file { 'php-debug':
 file { 'xhgui config':
   path => '/opt/xhgui/config/config.php',
   ensure => 'link',
-  target => '/etc/php5/xhgui/config.php',
+  target => '/etc/php/xhgui/config.php',
 }
 
 file { 'xhgui htaccess':
   path => '/opt/xhgui/webroot/.htaccess',
   ensure => 'link',
-  target => '/etc/php5/xhgui/htaccess',
+  target => '/etc/php/xhgui/htaccess',
 }
 
 file { 'lmm':
@@ -65,9 +69,14 @@ vcsrepo { '/opt/drush':
   revision => '8.1.2',
 }
 
+exec { "composer self-update":
+  command => "/usr/local/bin/composer self-update",
+  environment => ["HOME=/tmp"],
+}
+
 exec { "composer drush":
   command => "/usr/local/bin/composer install --working-dir=/opt/drush",
-  environment => ["HOME=/home/vagrant"],
+  environment => ["HOME=/tmp"],
 }
 
 # Remove drush8
@@ -120,6 +129,15 @@ file { 'zshrc':
 }
 
 package { 'apache2':
+  ensure => 'latest',
+}
+package { 'libapache2-mod-php':
+  ensure => 'latest',
+}
+package { 'libapache2-mod-php5.6':
+  ensure => 'latest',
+}
+package { 'libapache2-mod-php5.5':
   ensure => 'latest',
 }
 package { 'avahi-daemon':
@@ -191,64 +209,79 @@ package { 'parallel':
 package { 'php-pear':
   ensure => 'latest',
 }
-package { 'php5':
+package { 'php':
   ensure => 'latest',
 }
-package { 'php5-apcu':
+package { 'php-apcu':
   ensure => 'latest',
 }
-package { 'php5-cli':
+package { 'php-cli':
   ensure => 'latest',
 }
-package { 'php5-common':
+package { 'php-common':
   ensure => 'latest',
 }
-package { 'php5-curl':
+package { 'php-curl':
   ensure => 'latest',
 }
-package { 'php5-gd':
+package { 'php-gd':
   ensure => 'latest',
 }
-package { 'php5-imagick':
+package { 'php-imagick':
   ensure => 'latest',
 }
-package { 'php5-json':
+package { 'php-json':
   ensure => 'latest',
 }
-package { 'php5-mcrypt':
+package { 'php-mcrypt':
   ensure => 'latest',
 }
-package { 'php5-memcache':
+package { 'php-memcache':
   ensure => 'latest',
 }
-package { 'php5-memcached':
+package { 'php-memcached':
   ensure => 'latest',
 }
-package { 'php5-mongo':
+package { 'php-msgpack':
   ensure => 'latest',
 }
-package { 'php5-mysql':
+package { 'php-mongo':
+  ensure => 'latest',
+}
+package { 'php-mysql':
   ensure => 'latest',
 }
 package { 'php-oauth':
   ensure => 'latest',
 }
-package { 'php5-readline':
+package { 'php-readline':
   ensure => 'latest',
 }
-package { 'php5-redis':
+package { 'php-redis':
   ensure => 'latest',
 }
-package { 'php5-sqlite':
+package { 'php-sqlite3':
   ensure => 'latest',
 }
-package { 'php5-xdebug':
+package { 'php-xdebug':
   ensure => 'latest',
 }
-package { 'php5-xhprof':
+package { 'php-xhprof':
   ensure => 'latest',
 }
-package { 'php5-xmlrpc':
+package { 'php-xml':
+  ensure => 'latest',
+}
+package { 'php5.6-xml':
+  ensure => 'latest',
+}
+package { 'php5.5-xml':
+  ensure => 'latest',
+}
+package { 'php-xmlrpc':
+  ensure => 'latest',
+}
+package { 'php-zip':
   ensure => 'latest',
 }
 package { 'pigz':
@@ -324,5 +357,10 @@ package { 'juju-core':
 }
 
 package {'libicu52':
+  ensure => 'purged',
+}
+
+# Remove all of the stock PHP packages in favour of the PPA.
+package { 'php5-common':
   ensure => 'purged',
 }
