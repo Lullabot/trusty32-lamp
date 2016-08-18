@@ -344,6 +344,7 @@ Updating baseboxes
 1. Set `PROVISIONING` to true in the `Vagrantfile`.
 1. Run `vagrant up`.
 1. Run `vagrant reload` to verify any upgraded kernels.
+1. Update the Virtualbox guest additions.
 1. Push any changes in `/etc/` to https://github.com/Lullabot/trusty32-lamp-etc.
    * Any explicit changes should be manually committed and shared with other
      repository branches.
