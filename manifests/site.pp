@@ -284,6 +284,9 @@ package { 'php-xmlrpc':
 package { 'php-zip':
   ensure => 'latest',
 }
+package{ 'php5.6-zip':
+  ensure => 'latest',
+}
 package { 'pigz':
   ensure => 'latest',
 }
