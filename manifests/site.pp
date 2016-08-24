@@ -224,7 +224,13 @@ package { 'php-common':
 package { 'php-curl':
   ensure => 'latest',
 }
+package { 'php5.6-curl':
+  ensure => 'latest',
+}
 package { 'php-gd':
+  ensure => 'latest',
+}
+package { 'php5.6-gd':
   ensure => 'latest',
 }
 package { 'php-imagick':
@@ -233,7 +239,13 @@ package { 'php-imagick':
 package { 'php-json':
   ensure => 'latest',
 }
+package { 'php5.6-json':
+  ensure => 'latest',
+}
 package { 'php-mcrypt':
+  ensure => 'latest',
+}
+package { 'php5.6-mcrypt':
   ensure => 'latest',
 }
 package { 'php-memcache':
@@ -279,6 +291,9 @@ package { 'php5.5-xml':
   ensure => 'latest',
 }
 package { 'php-xmlrpc':
+  ensure => 'latest',
+}
+package { 'php5.6-xmlrpc':
   ensure => 'latest',
 }
 package { 'php-zip':
