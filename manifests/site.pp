@@ -12,6 +12,12 @@ apt::ppa {
   'ppa:ondrej/apache2':
 }
 
+# Fixes chunked transfers with Guzzle.
+# https://www.mastizada.com/blog/chunked-encoded-data-error-in-php-curl-requests/
+apt::ppa {
+  'ppa:costamagnagianfranco/ettercap-stable-backports':
+}
+
 class { 'composer':
   command_name => 'composer',
   target_dir   => '/usr/local/bin'
