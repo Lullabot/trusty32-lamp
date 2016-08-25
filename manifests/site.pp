@@ -269,6 +269,9 @@ package { 'php-mongo':
 package { 'php-mysql':
   ensure => 'latest',
 }
+package { 'php5.6-mysql':
+  ensure => 'latest',
+}
 package { 'php-oauth':
   ensure => 'latest',
 }
