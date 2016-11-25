@@ -221,6 +221,12 @@ package { 'php':
 package { 'php-apcu':
   ensure => 'latest',
 }
+package { 'php5.6-bcmath':
+  ensure => 'latest',
+}
+package { 'php7.0-bcmath':
+  ensure => 'latest',
+}
 package { 'php-cli':
   ensure => 'latest',
 }
