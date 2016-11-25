@@ -254,6 +254,12 @@ package { 'php-json':
 package { 'php5.6-json':
   ensure => 'latest',
 }
+package { 'php5.6-mbstring':
+  ensure => 'latest',
+}
+package { 'php7.0-mbstring':
+  ensure => 'latest',
+}
 package { 'php-mcrypt':
   ensure => 'latest',
 }
