@@ -17,4 +17,4 @@ echo "PHP_IDE_CONFIG="$PHP_IDE_CONFIG
 echo "XDEBUG_CONFIG="$XDEBUG_CONFIG
 
 echo "Starting a new shell with xdebug enabled. Exit the shell to disable debugging."
-bash
+$SHELL
