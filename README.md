@@ -258,7 +258,7 @@ XHGui is installed to /opt and preconfigured to profile PHP requests. Profiles
 are kept for 5 days, and indexes have been added as recommended by the xhgui
 setup instructions.
 
-**To start profiling** simply append ```?xhprof=on``` to a request. This will
+**To start profiling** simply append ```?xhgui=on``` to a request. This will
 set a cookie that will keep profiling enabled for the next hour, regardless of
 the query parameters. Browse to /xhgui to view your profiles.
 
