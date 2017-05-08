@@ -374,6 +374,9 @@ Updating baseboxes
 Converting a VirtualBox box to VMWare
 -------------------------------------
 
+_I'm not building VMWare images anymore. If anyone is interested in building
+and maintaining them, please open an issue._
+
 While it's easiest to update the existing VMWare base box, sometimes it's
 better to update a VirtualBox box and then convert it work with VMWare.
 
