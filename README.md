@@ -200,7 +200,8 @@ Package highlights
 * LAMP stack composed of
   * Apache 2.4
   * MariaDB 5.5
-  * PHP 5.5 (using mod_php)
+  * PHP 5.6 and PHP 7.0 (using mod_php)
+    * Other PHP versions are installed but not configured
   * memcached 1.4
   * redis 2.8
 * zsh and oh-my-zsh
