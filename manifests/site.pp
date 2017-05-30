@@ -284,6 +284,9 @@ package { 'php-mysql':
 package { 'php5.6-mysql':
   ensure => 'latest',
 }
+package { 'php7.0-mysql':
+  ensure => 'latest',
+}
 package { 'php-oauth':
   ensure => 'latest',
 }
