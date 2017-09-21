@@ -22,13 +22,13 @@ PUBLIC_NETWORK = FALSE
 # FILE SYNCING
 
 # Choose between "vbox", "nfs", "rsync", or "none" sync types.
+#   - NFS is preferred, but doesn't work on Windows.
 #   - vbox is the simplest, but also the slowest.
-#   - NFS doesn't work on Windows, but is decently fast.
 #   - rsync is the fastest, but doesn't automatically run. It also has some
 #     performance issues in Vagrant 1.6. See
 #     https://github.com/smerrill/vagrant-gatling-rsync for a temporary
 #     solution.
-SYNC_TYPE = "vbox"
+SYNC_TYPE = "nfs"
 
 # By default, sync a "www" directory within this project. This can be changed
 # to an absolute path. By default, Apache is configured to look for a docroot
