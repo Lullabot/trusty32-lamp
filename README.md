@@ -100,7 +100,12 @@ Box Setup
      search.
 1. Decide on a hostname for your VM.
    * Set a `HOSTNAME` for your VM, such as `drupal8.local`.
-     * Your hostname **must end in .local** for automatic DNS to work.
+     * Your hostname **must end in .local** for automatic DNS to work. If you
+       decide to use a different hostname, you will likely need to add a line
+       to your `/etc/hosts` with the bridge IP of the VM. This can be found
+       by running `ifconfig eth1` on the VM, though you might consider
+       configuring a `STATIC_IP` for this in your Vagrantfile instead, as that
+       IP may change.
      * If your system does not support ZeroConf / Bonjour (most do)
        * Windows users can install
          [Bonjour for Windows](http://support.apple.com/kb/dl999)
