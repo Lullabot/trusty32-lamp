@@ -107,7 +107,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   case SYNC_TYPE
     when "vbox"
-      config.vm.synced_folder SYNC_DIRECTORY, "/var/www"
+      config.vm.synced_folder SYNC_DIRECTORY, "/var/www", owner: "www-data", group: "www-data"
 
     when "nfs"
       config.vm.synced_folder SYNC_DIRECTORY, "/var/www", type: "nfs"
