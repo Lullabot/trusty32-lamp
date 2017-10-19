@@ -239,6 +239,12 @@ package { 'php-curl':
 package { 'php5.6-curl':
   ensure => 'latest',
 }
+package { 'php7.0-curl':
+  ensure => 'latest',
+}
+package { 'php7.1-curl':
+  ensure => 'latest',
+}
 package { 'php-gd':
   ensure => 'latest',
 }
