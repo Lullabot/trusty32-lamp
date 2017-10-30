@@ -120,7 +120,7 @@ Box Setup
    * Most users will want to use NFS or rsync.
    * For larger codebases, a significant performance improvement can be seen by
      switching to rsync instead of NFS. Windows users might want to try
-     [smb mouting](https://docs.vagrantup.com/v2/synced-folders/smb.html).
+     [smb mounting](https://docs.vagrantup.com/v2/synced-folders/smb.html).
 1. Boot the VM with ```vagrant up [--provider vmware_fusion]```. The base box
    will be automatically downloaded.
 1. Browse to the hostname you choose to see phpinfo or the code you have synced.
