@@ -11,6 +11,7 @@ you are new to Vagrant, read on.
 
 
 - [Goals](#goals)
+- [Choosing between xAMP, Vagrant, and Docker](#choosing-between-xamp-vagrant-and-docker)
 - [Box Requirements](#box-requirements)
 - [Box Setup](#box-setup)
   - [Optional setup](#optional-setup)
@@ -29,6 +30,7 @@ you are new to Vagrant, read on.
 - [Email Configuration](#email-configuration)
 - [Drush Alias Autoconfiguration](#drush-alias-autoconfiguration)
 - [Verifying basebox integrity](#verifying-basebox-integrity)
+  - [Verifying the download when adding the box](#verifying-the-download-when-adding-the-box)
   - [Verifying the box manually](#verifying-the-box-manually)
   - [Validating my identity](#validating-my-identity)
 - [Updating baseboxes](#updating-baseboxes)
@@ -63,6 +65,23 @@ Goals
 * [Drush](https://github.com/drush-ops/drush) included for Drupal dev (and out
   of the way for everything else).
 * No provisioning whatsoever; treat boxes as "fork and forget" for new projects.
+
+## Choosing between xAMP, Vagrant, and Docker
+
+Deciding what local development environment to choose for you and your team
+can be tricky. Here are three options, ordered in terms of complexity:
+
+1. Is your team entirely new to PHP and web development in general? Consider
+   using something like [MAMP](https://www.mamp.info) instead of Vagrant or
+   Docker.
+1. Does your team have a good handle on web development, but are running into
+   the limitations of running the site on macOS or Windows? Does your team have
+   mixed operating systems including Windows and Linux? Are your production
+   database imports locally slowing your team down? This Vagrant box aims to
+   address all of these use cases.
+1. Is your team using Docker in production, or already maintaining Dockerfiles?
+   If so, consider using
+   [docker4drupal](https://github.com/wodby/docker4drupal) or similar.
 
 ## Box Requirements
 
