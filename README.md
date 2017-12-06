@@ -24,6 +24,7 @@ you are new to Vagrant, read on.
   - [Apache configuration](#apache-configuration)
 - [Package highlights](#package-highlights)
 - [MariaDB (MySQL) Configuration](#mariadb-mysql-configuration)
+- [Changing PHP Versions](#changing-php-versions)
 - [PHP Debugging with xdebug](#php-debugging-with-xdebug)
 - [PHP Profiling with XHGui](#php-profiling-with-xhgui)
 - [Fast database dumps and restores with MySQL Parallel](#fast-database-dumps-and-restores-with-mysql-parallel)
@@ -226,6 +227,7 @@ Package highlights
   * MariaDB 5.5
   * PHP 5.6 and PHP 7.0 (using mod_php)
     * Other PHP versions are installed but not configured
+    * See [Changing PHP Versions](#changing-php-versions) to switch versions
   * memcached 1.4
   * redis 2.8
 * zsh and oh-my-zsh
@@ -252,6 +254,29 @@ configuration. For SSH, use the hostname you set in the Vagrantfile and
 your project's `.vagrant` folder.
 
 ![Sequel Pro Configuration](img/sequel-pro.png)
+
+Changing PHP Versions
+---------------------
+
+Apache and command line PHP by default are configured to use PHP 5.6.x. If you
+would like to use, for example, PHP 7.0.x, run the following commands:
+
+```
+$ vagrant ssh # If you aren't already ssh'ed in.
+
+# Switch to using PHP 7.0 on the command line
+$ sudo update-alternatives --set php /usr/bin/php7.0
+# Check to make sure your PHP version is correct now.
+$ php -v
+
+# Update Apache to use PHP 7.0 instead of PHP 5.6
+$ sudo a2dismod php5.6 && sudo a2enmod php7.0
+# Now restart Apache
+$ sudo apachectl restart
+```
+
+Note: If you've altered anything in php.ini for PHP 5.6, you will need to make
+those same changes in `/etc/php/7.0`.
 
 PHP Debugging with xdebug
 -------------------------
