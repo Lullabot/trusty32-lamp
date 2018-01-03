@@ -140,6 +140,15 @@ package { 'apache2':
 package { 'libapache2-mod-php':
   ensure => 'latest',
 }
+package { 'libapache2-mod-php7.2':
+  ensure => 'latest',
+}
+package { 'libapache2-mod-php7.1':
+  ensure => 'latest',
+}
+package { 'libapache2-mod-php7.0':
+  ensure => 'latest',
+}
 package { 'libapache2-mod-php5.6':
   ensure => 'latest',
 }
@@ -245,7 +254,19 @@ package { 'php7.0-curl':
 package { 'php7.1-curl':
   ensure => 'latest',
 }
+package { 'php7.2-curl':
+  ensure => 'latest',
+}
 package { 'php-gd':
+  ensure => 'latest',
+}
+package { 'php7.2-gd':
+  ensure => 'latest',
+}
+package { 'php7.1-gd':
+  ensure => 'latest',
+}
+package { 'php7.0-gd':
   ensure => 'latest',
 }
 package { 'php5.6-gd':
@@ -293,6 +314,12 @@ package { 'php5.6-mysql':
 package { 'php7.0-mysql':
   ensure => 'latest',
 }
+package { 'php7.1-mysql':
+  ensure => 'latest',
+}
+package { 'php7.2-mysql':
+  ensure => 'latest',
+}
 package { 'php-oauth':
   ensure => 'latest',
 }
@@ -314,6 +341,15 @@ package { 'php-xhprof':
 package { 'php-xml':
   ensure => 'latest',
 }
+package { 'php7.2-xml':
+  ensure => 'latest',
+}
+package { 'php7.1-xml':
+  ensure => 'latest',
+}
+package { 'php7.0-xml':
+  ensure => 'latest',
+}
 package { 'php5.6-xml':
   ensure => 'latest',
 }
@@ -327,6 +363,15 @@ package { 'php5.6-xmlrpc':
   ensure => 'latest',
 }
 package { 'php-zip':
+  ensure => 'latest',
+}
+package{ 'php7.2-zip':
+  ensure => 'latest',
+}
+package{ 'php7.1-zip':
+  ensure => 'latest',
+}
+package{ 'php7.0-zip':
   ensure => 'latest',
 }
 package{ 'php5.6-zip':
