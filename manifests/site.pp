@@ -72,7 +72,7 @@ vcsrepo { '/opt/drush':
   ensure => 'present',
   provider => git,
   source => 'https://github.com/drush-ops/drush.git',
-  revision => '8.1.3',
+  revision => '8.1.15',
 }
 
 exec { "composer self-update":
