@@ -281,7 +281,7 @@ package { 'php-memcached':
 package { 'php-msgpack':
   ensure => 'latest',
 }
-package { 'php-mongo':
+package { 'php-mongodb':
   ensure => 'latest',
 }
 package { 'php-mysql':
