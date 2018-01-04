@@ -8,7 +8,6 @@ test() {
   rm -rf /var/www/docroot
 
   drush dl drupal --destination=/var/www --drupal-project-rename=docroot -y
-  sudo chown -Rv www-data:vagrant /var/www/docroot/sites/default
   cd /var/www/docroot
 
   # Test the installer loads.
