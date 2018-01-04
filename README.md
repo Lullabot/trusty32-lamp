@@ -393,6 +393,7 @@ Updating baseboxes
 1. Set `USE_INSECURE_KEY` to true in the `Vagrantfile`.
 1. Set `PROVISIONING` to true in the `Vagrantfile`.
 1. Run `vagrant up`.
+1. Run `vagrant provision` until it passes.
 1. Run `vagrant reload` to verify any upgraded kernels.
 1. Update the Virtualbox guest additions.
 1. Push any changes in `/etc/` to https://github.com/Lullabot/trusty32-lamp-etc.
