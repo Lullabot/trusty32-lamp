@@ -236,6 +236,12 @@ package { 'php5.6-bcmath':
 package { 'php7.0-bcmath':
   ensure => 'latest',
 }
+package { 'php7.1-bcmath':
+  ensure => 'latest',
+}
+package { 'php7.2-bcmath':
+  ensure => 'latest',
+}
 package { 'php-cli':
   ensure => 'latest',
 }
@@ -287,7 +293,20 @@ package { 'php5.6-mbstring':
 package { 'php7.0-mbstring':
   ensure => 'latest',
 }
+package { 'php7.1-mbstring':
+  ensure => 'latest',
+}
+package { 'php7.2-mbstring':
+  ensure => 'latest',
+}
 package { 'php-mcrypt':
+  ensure => 'latest',
+}
+# mcrypt has been removed as of PHP 7.2.
+package { 'php7.1-mcrypt':
+  ensure => 'latest',
+}
+package { 'php7.0-mcrypt':
   ensure => 'latest',
 }
 package { 'php5.6-mcrypt':
