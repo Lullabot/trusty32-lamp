@@ -188,6 +188,12 @@ package { 'htop':
 package { 'lbzip2':
   ensure => 'latest',
 }
+package { 'zip':
+  ensure => 'latest',
+}
+package { 'unzip':
+  ensure => 'latest',
+}
 package { 'lvm2':
   ensure => 'latest',
 }
