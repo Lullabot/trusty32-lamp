@@ -1,4 +1,6 @@
-#!/bin/bash -ex
+#!/bin/bash
+
+set -eE
 
 # This script expects to be run as root. It can be run with:
 #   $ vagrant ssh --command "sudo /vagrant/test.sh"
@@ -29,6 +31,12 @@ test() {
   wget -q -O - http://localhost/?xhgui=on > /dev/null
   wget -q -O - http://localhost/xhgui | grep '/?xhgui=on'
 }
+
+err_report() {
+  echo "Error on line $(caller)" >&2
+}
+
+trap err_report ERR
 
 # Test each php version.
 VERSIONS="php5.6 php7.0 php7.1"
