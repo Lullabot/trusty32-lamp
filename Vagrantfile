@@ -14,7 +14,7 @@ HOSTNAME = "trusty-lamp.local"
 # This is disabled by default as it can break on some captive Wifi networks
 # like those in airprots or hotels. Turn this back off if your VM doesn't boot
 # in a new network environment!
-PUBLIC_NETWORK = FALSE
+PUBLIC_NETWORK = false
 
 # Set a static IP for this box in addition to the DHCP IP.
 # STATIC_IP = "192.168.100.100"
@@ -156,7 +156,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.provider "vmware_desktop" do |v|
       v.vmx["memsize"] = MEMORY
       v.vmx["numvcpus"] = CPUS
-      v.vmx["tools.synctime"] = TRUE
+      v.vmx["tools.synctime"] = true
   end
 
   # All Vagrant configuration is done here. The most common configuration

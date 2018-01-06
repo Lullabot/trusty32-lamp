@@ -393,6 +393,7 @@ Updating baseboxes
 1. Set `USE_INSECURE_KEY` to true in the `Vagrantfile`.
 1. Set `PROVISIONING` to true in the `Vagrantfile`.
 1. Run `vagrant up`.
+1. Run `vagrant provision` until it passes.
 1. Run `vagrant reload` to verify any upgraded kernels.
 1. Update the Virtualbox guest additions.
 1. Push any changes in `/etc/` to https://github.com/Lullabot/trusty32-lamp-etc.
@@ -401,6 +402,9 @@ Updating baseboxes
 1. Use `apt-get purge` to remove any old linux-image and linux-header packages to
    save disk space.
 1. Run `vagrant reload` just to make sure grub is still working.
+1. Run
+   `vagrant snapshot push && vagrant ssh --command='sudo /vagrant/test.sh' && vagrant snapshot pop`
+   to ensure that the web server, xdebug, and xhgui are working.
 1. Run `vagrant ssh -c /vagrant/zero-free-space` to zero free space on the
    disk.
 1. Halt the box.
