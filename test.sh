@@ -39,6 +39,9 @@ err_report() {
 
 trap err_report ERR
 
+# Make sure we haven't clobbered the insecure default ssh key.
+grep 'vagrant insecure public key' .ssh/authorized_keys
+
 # Test each php version.
 VERSIONS="php5.6 php7.0 php7.1"
 for VERSION in  $VERSIONS
