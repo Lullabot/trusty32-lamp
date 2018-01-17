@@ -13,8 +13,8 @@ describe 'wget::authfetch' do
 
   context "with default params", :compile do
     it { should contain_exec('wget-authtest').with({
-      'command'     => "wget --no-verbose --user=myuser --output-document='#{destination}' 'http://localhost/source'",
-      'environment' => "WGETRC=#{destination}.wgetrc"
+      'command'     => "wget --no-verbose --user=myuser --output-document=\"#{destination}\" \"http://localhost/source\"",
+      'environment' => ["WGETRC=#{destination}.wgetrc"]
       })
     }
     it { should contain_file("#{destination}.wgetrc").with_content('password=mypassword') }
@@ -26,7 +26,7 @@ describe 'wget::authfetch' do
     })}
 
     it { should contain_exec('wget-authtest').with({
-      'command' => "wget --no-verbose --user=myuser --output-document='#{destination}' 'http://localhost/source'",
+      'command' => "wget --no-verbose --user=myuser --output-document=\"#{destination}\" \"http://localhost/source\"",
       'user'    => 'testuser'
     }) }
   end

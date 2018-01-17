@@ -18,7 +18,7 @@ install wget:
 ```puppet
     wget::fetch { "download Google's index":
       source      => 'http://www.google.com/index.html',
-      destination => '/tmp/index.html',
+      destination => '/tmp/',
       timeout     => 0,
       verbose     => false,
     }
@@ -27,17 +27,38 @@ or alternatively:
 
 ```puppet
     wget::fetch { 'http://www.google.com/index.html':
-      destination => '/tmp/index.html',
+      destination => '/tmp/',
       timeout     => 0,
       verbose     => false,
     }
 ```
+
+If `$destination` ends in either a forward or backward slash, it will treat the destination as a directory and name the file with the basename of the `$source`.
+```puppet
+  wget::fetch { 'http://mywebsite.com/apples':
+    destination => '/downloads/',
+  }
+```
+
+Download from an array of URLs into one directory
+```puppet
+  $manyfiles = [
+    'http://mywebsite.com/apples',
+    'http://mywebsite.com/oranges',
+    'http://mywebsite.com/bananas',
+  ]
+
+  wget::fetch { $manyfiles:
+    destination => '/downloads/',
+  }
+```
+
 This fetches a document which requires authentication:
 
 ```puppet
     wget::fetch { 'Fetch secret PDF':
       source      => 'https://confidential.example.com/secret.pdf',
-      destination => '/tmp/secret.pdf',
+      destination => '/tmp/',
       user        => 'user',
       password    => 'p$ssw0rd',
       timeout     => 0,
@@ -51,7 +72,7 @@ wget options to only re-download if the source file has been updated.
 
 ```puppet
     wget::fetch { 'https://tool.com/downloads/tool-1.0.tgz':
-      destination => '/tmp/tool-1.0.tgz',
+      destination => '/tmp/',
       cache_dir   => '/var/cache/wget',
     }
 ```
@@ -71,6 +92,15 @@ this case you must inform the correct filename in the cache like this:
 Checksum can be used in the `source_hash` parameter, with the MD5-sum of the content to be downloaded.
 If content exists, but does not match it is removed before downloading.
 
+If you want to use your own unless condition, you can do it. This example uses wget to download the latest version of Wordpress to your destination folder only if the folder is empty (test used returns 1 if directory is empty or 0 if not).
+```puppet
+    wget::fetch { 'wordpress':
+        source      => 'https://wordpress.org/latest.tar.gz',
+        destination => "/var/www/html/latest_wordpress.tar.gz",
+        timeout     => 0,
+        unless      => "test $(ls -A /var/www/html 2>/dev/null)",
+    }
+```
 
 # Building
 
