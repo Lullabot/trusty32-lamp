@@ -136,7 +136,9 @@ Box Setup
 1. Set up `FILE SYNCING` by setting `SYNC_TYPE` and `SYNC_DIRECTORY`.
    * By default Virtualbox syncing and a `www` directory are synced.
    * The only assumption is that whatever is mounted into ```/var/www``` has a
-     docroot directory.
+     docroot directory. If your project uses another directory, you can add a
+     symlink by running `ln -s <repository docroot> docroot`, or by editing the
+     Apache configuration in `/etc/apache2/sites-enabled`.
    * Most users will want to use NFS or rsync.
    * For larger codebases, a significant performance improvement can be seen by
      switching to rsync instead of NFS. Windows users might want to try
