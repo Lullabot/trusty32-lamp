@@ -92,9 +92,11 @@ If this is your first time you are using Vagrant, you will need:
   [Homebrew](http://brew.sh), but it's not required. Windows users can use the
   excellent [Babun](http://babun.github.io) or get Git directly from
   [git-scm.com](https://git-scm.com).
-* [VirtualBox](https://www.virtualbox.org), used to run virtual machines.
+* [VirtualBox](https://www.virtualbox.org), used to run virtual machines. Use
+  the latest version instead of distribution-provided packages.
 * [Vagrant](https://www.vagrantup.com), the CLI tool to manage virtual
-  machines easily.
+  machines easily. Use the latest version instead of distribution-provided
+  packages.
 * (optionally) The
   [Vagrant vbguest](https://github.com/dotless-de/vagrant-vbguest) plugin, to
   automatically update guest additions:
