@@ -97,11 +97,6 @@ If this is your first time you are using Vagrant, you will need:
 * [Vagrant](https://www.vagrantup.com), the CLI tool to manage virtual
   machines easily. Use the latest version instead of distribution-provided
   packages.
-* (optionally) The
-  [Vagrant vbguest](https://github.com/dotless-de/vagrant-vbguest) plugin, to
-  automatically update guest additions:
-
-    ```$ vagrant plugin install vbguest```
 
 This Vagrant box will always support the latest versions of VirtualBox and
 Vagrant, which are both updated regularly. If you encounter any problems while
