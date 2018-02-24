@@ -207,7 +207,7 @@ get to the menu when booting a VM.
 
 ### "Unable to mount shared folders" fixed
 
-The VirtualBox additions install to /top, but /sbin/mount.vboxfs expects them
+The VirtualBox additions install to /opt, but /sbin/mount.vboxfs expects them
 in /usr/lib. <a href="https://forums.virtualbox.org/viewtopic.php?f=3&p=283645">
 A symlink has been added</a> from /usr/lib/VBoxGuestAdditions to fix this.
 
