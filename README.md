@@ -161,8 +161,8 @@ should be enough.
 ### Drupal Installation
 
 These instructions will be fairly similar for any other PHP app checked out
-from git. Most other systems will require a `composer install`, which can be
-run from inside the VM or on the host machine.
+from git. Most systems will require a `composer install`, which can be run from
+inside the VM or on the host machine.
 
 1. Remove the default docroot directory, since we are going to replace it with a
    Drupal checkout:
