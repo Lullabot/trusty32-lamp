@@ -170,7 +170,6 @@ run from inside the VM or on the host machine.
     ```
     $ cd www
     $ rm -rfv docroot
-    $ cd ..
     ```
 
 2. Go to drupal.org to clone Drupal 8 to get directions to checkout Drupal. It
