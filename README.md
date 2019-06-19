@@ -1,6 +1,11 @@
 trusty32-lamp-vm
 ==============
 
+With Ubuntu 14.04 EOL'ed, this
+[project has been abandonned](https://github.com/Lullabot/trusty32-lamp/issues/50)
+in favour of [laravel/homestead](https://github.com/laravel/homestead). Come
+join us there!
+
 [Instructions if you've used Vagrant before](#box-setup). If
 you are new to Vagrant, read on.
 
